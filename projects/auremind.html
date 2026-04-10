@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AureMind — Demas Anggara</title>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="../index.html">demas<em>.anggara</em></a>
+  <div class="nav-links">
+    <a class="nav-btn" href="../index.html">Home</a>
+    <a class="nav-btn" href="../projects.html">Projects</a>
+    <a class="nav-btn" href="../about.html">About</a>
+    <a class="nav-btn" href="../contact.html">Contact</a>
+  </div>
+  <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+  <a class="nav-hire" href="../contact.html">Hire me</a>
+</nav>
+
+<div class="project-detail">
+
+  <div class="breadcrumb">
+    <a href="../projects.html">Projects</a>
+    <span class="breadcrumb-sep">/</span>
+    <span>AureMind</span>
+  </div>
+
+  <div class="project-hero c4">🎓</div>
+
+  <div class="project-meta-row">
+    <span class="project-cat-badge">College Project</span>
+    <span class="project-year">2025</span>
+  </div>
+  <h1>AureMind</h1>
+
+  <div class="project-layout">
+    <div class="project-body">
+
+      <h3>Overview</h3>
+      <p>A desktop application developed as part of a database systems and software engineering course. The project demonstrates practical implementation of relational database concepts, CRUD operations, and a JavaFX graphical user interface.</p>
+
+      <h3>Project Brief</h3>
+      <p>The assignment required building a complete data management system from scratch, including database design, normalization, query optimization, and a user-facing GUI. The system had to support multiple user roles with different access levels.</p>
+
+      <h3>What Was Built</h3>
+      <p>A student records management system with separate admin and user interfaces. Admins can manage student data, course enrollments, and generate reports. Regular users can view their own records and submit requests.</p>
+
+      <h3>Key Features</h3>
+      <ul>
+        <li>Relational database with normalized schema (3NF)</li>
+        <li>Role-based access control (admin vs. student)</li>
+        <li>JavaFX UI with table views, forms, and dialogs</li>
+        <li>CRUD operations for students, courses, and enrollments</li>
+        <li>Report generation with filtered exports</li>
+        <li>Password hashing for user authentication</li>
+      </ul>
+
+      <h3>Database Design</h3>
+      <p>The schema was designed to 3rd Normal Form to eliminate redundancy. Key tables include Students, Courses, Enrollments, Users, and AuditLog. Foreign key constraints and transactions ensure data integrity across operations.</p>
+
+      <h3>Outcome</h3>
+      <p>Received full marks for the project. The main feedback from the lecturer was positive on the normalization and transaction handling, with a suggestion to add indexing on the frequently queried columns — which I implemented as an extra improvement.</p>
+
+    </div>
+
+    <div class="project-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Tech Stack</div>
+        <div class="sidebar-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Django</span>
+          <span class="tag">SQLite</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Links</div>
+        <div class="sidebar-links">
+          <a class="sidebar-link" href="https://github.com/demuuus/AureMind" target="_blank">
+            🐙 View on GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Details</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div>
+            <div style="font-size:11px;font-family:'Fira Code',monospace;color:#aaa;margin-bottom:3px">Status</div>
+            <div style="font-size:13px;font-weight:500;color:#888">⚪ Archived</div>
+          </div>
+          <div>
+            <div style="font-size:11px;font-family:'Fira Code',monospace;color:#aaa;margin-bottom:3px">Type</div>
+            <div style="font-size:13px;font-weight:500">Academic</div>
+          </div>
+          <div>
+            <div style="font-size:11px;font-family:'Fira Code',monospace;color:#aaa;margin-bottom:3px">Year</div>
+            <div style="font-size:13px;font-weight:500">2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-nav">
+    <a class="project-nav-btn" href="../projects/adhan-caller.html">
+      <span class="project-nav-label">← Previous project</span>
+      <span class="project-nav-title">Adhan Caller</span>
+    </a>
+    <div>
+    </div>
+  </div>
+
+</div>
+
+<footer>built by <span>Demas Anggara</span> · Portfolio · 2026</footer>
+<script src="../script.js"></script>
+</body>
+</html>

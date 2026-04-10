@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Demas Anggara — Portfolio</title>
+  <meta name="description" content="CS student building full-stack apps and exploring ML."/>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="../index.html">demas<em>.anggara</em></a>
+  <div class="nav-links">
+    <a class="nav-btn" href="../index.html">Home</a>
+    <a class="nav-btn" href="../projects.html">Projects</a>
+    <a class="nav-btn" href="../about.html">About</a>
+    <a class="nav-btn" href="../contact.html">Contact</a>
+  </div>
+  <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+  <a class="nav-hire" href="../contact.html">Hire me</a>
+</nav>
+
+<!-- HERO -->
+<div class="home-hero">
+  <div class="home-hero-grid">
+    <div>
+      <div class="badge"><span class="badge-dot"></span>Open to internships &amp; projects</div>
+      <h1 class="hero-name">Hi, I'm<br><span>Demas F. Anggara</span></h1>
+      <p class="hero-role">Computer Science Student · Full-Stack Developer · Machine Learning & Data Science Enthusiast · AI Explorer · Server System Learner</p>
+      <p class="hero-desc">Driven by curiosity and problem-solving, I create technology projects that combine software engineering, machine learning, and meaningful user experiences.</p>
+      <div class="btn-row">
+        <a class="btn-dark" href="../projects.html">Personal Projects →</a>
+        <a class="btn-light" href="../about.html">About me</a>
+      </div>
+    </div>
+    <div>
+      <div class="terminal-card">
+        <div class="term-bar">
+          <div class="term-dot" style="background:#ff5f57"></div>
+          <div class="term-dot" style="background:#ffbd2e"></div>
+          <div class="term-dot" style="background:#28c940"></div>
+          <span class="term-title">~/atz63</span>
+        </div>
+        <div class="term-body">
+          <div><span class="t-g">❯</span> <span class="t-w">cat info.json</span></div>
+          <div class="t-dim">{</div>
+          <div class="t-dim">&nbsp;&nbsp;<span class="t-b">"name"</span>: <span class="t-y">"Demas Fadel Anggara"</span>,</div>
+          <div class="t-dim">&nbsp;&nbsp;<span class="t-b">"year"</span>: <span class="t-y">"Fresh Graduate"</span>,</div>
+          <div class="t-dim">&nbsp;&nbsp;<span class="t-b">"focus"</span>: <span class="t-y">"Full-stack + ML + AI + Server"</span>,</div>
+          <div class="t-dim">&nbsp;&nbsp;<span class="t-b">"status"</span>: <span class="t-g">"open to work ✓"</span></div>
+          <div class="t-dim">}</div>
+          <div style="margin-top:4px"><span class="t-g">❯</span> <span class="cursor"></span></div>
+        </div>
+      </div>
+      <div class="stats-row">
+        <div class="stat-box"><div class="stat-n">4</div><div class="stat-l">projects</div></div>
+        <!-- <div class="stat-box"><div class="stat-n">3</div><div class="stat-l">years of exp</div></div> -->
+        <div class="stat-box"><div class="stat-n">2</div><div class="stat-l">internships</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TECH STRIP -->
+<div class="tech-strip">
+  <span class="tech-label">Stack:</span>
+  <span class="tech-pill">Python</span>
+  <span class="tech-pill">JavaScript</span>
+  <span class="tech-pill">Java</span>
+  <span class="tech-pill">C++</span>
+  <span class="tech-pill">SQL</span>
+  <span class="tech-pill">HTML</span>
+  <span class="tech-pill">CSS</span>
+
+  <span class="tech-pill">React</span>
+  <span class="tech-pill">Node.js</span>
+  <span class="tech-pill">Django</span>
+  <span class="tech-pill">Flask</span>
+
+  <span class="tech-pill">Pandas</span>
+  <span class="tech-pill">NumPy</span>
+  <span class="tech-pill">Scikit-learn</span>
+  <span class="tech-pill">TensorFlow</span>
+  <span class="tech-pill">PyTorch</span>
+  <span class="tech-pill">Matplotlib</span>
+  <span class="tech-pill">Seaborn</span>
+  <span class="tech-pill">Jupyter</span>
+
+  <span class="tech-pill">REST API</span>
+  <span class="tech-pill">Discord API</span>
+  <span class="tech-pill">Telegram API</span>
+
+  <span class="tech-pill">Docker</span>
+  <span class="tech-pill">Git</span>
+  <span class="tech-pill">Linux</span>
+</div>
+
+<!-- FEATURED PROJECTS -->
+<div class="featured-section">
+  <div class="sec-header">
+    <div class="sec-title">Featured projects</div>
+    <a class="sec-link" href="../projects.html">View all →</a>
+  </div>
+  <div class="card-grid-3">
+
+    <a class="proj-card" href="../projects/sppg-carto.html">
+      <div class="proj-top c2">🗺️</div>
+      <div class="proj-body">
+        <div class="proj-cat">Web App · 2026</div>
+        <div class="proj-title">Badan Gizi Nasional - SPPG Carto</div>
+        <div class="proj-desc">Geospatial cartography web app for visualizing and managing SPPG regional planning data.</div>
+        <div class="proj-tags"><span class="tag">React</span><span class="tag">Leaflet.js</span><span class="tag">GeoJSON</span></div>
+      </div>
+    </a>
+
+    <a class="proj-card" href="../projects/tuschology-idx-bot.html">
+      <div class="proj-top c1">📈</div>
+      <div class="proj-body">
+        <div class="proj-cat">Bot / Automation · 2025</div>
+        <div class="proj-title">Tuschology-IDX-Bot</div>
+        <div class="proj-desc">Real-time IDX announcement & Indonesian Market News Bot with priority alerts, structured scraping, Discord topic-based routing, Telegram broadcast, and dynamic market-aware presence system.</div>
+        <div class="proj-tags"><span class="tag">Python</span><span class="tag">Telegram API</span><span class="tag">Discord API</span><span class="tag">BeautifulSoup</span></div>
+      </div>
+    </a>
+
+    <a class="proj-card" href="../projects/adhan-caller.html">
+      <div class="proj-top c3">🕌</div>
+      <div class="proj-body">
+        <div class="proj-cat">Embedded / IoT · 2026</div>
+        <div class="proj-title">God's Call</div>
+        <div class="proj-desc">A Python-based Adhan automation service that fetches daily prayer times, schedules reminders, supports offline caching, and runs reliably as a systemd service on Linux servers.</div>
+        <div class="proj-tags"><span class="tag">Python</span><span class="tag">Linux Server</span><span class="tag">SQLite</span></div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<footer>built by <span>Demas Anggara</span> · Portfolio · 2026</footer>
+<script src="../script.js"></script>
+</body>
+</html>

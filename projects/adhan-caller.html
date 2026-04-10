@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adhan Caller — Demas Anggara</title>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="../index.html">demas<em>.anggara</em></a>
+  <div class="nav-links">
+    <a class="nav-btn" href="../index.html">Home</a>
+    <a class="nav-btn" href="../projects.html">Projects</a>
+    <a class="nav-btn" href="../about.html">About</a>
+    <a class="nav-btn" href="../contact.html">Contact</a>
+  </div>
+  <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+  <a class="nav-hire" href="../contact.html">Hire me</a>
+</nav>
+
+<div class="project-detail">
+
+  <div class="breadcrumb">
+    <a href="../projects.html">Projects</a>
+    <span class="breadcrumb-sep">/</span>
+    <span>Adhan Caller</span>
+  </div>
+
+  <div class="project-hero c3">🕌</div>
+
+  <div class="project-meta-row">
+    <span class="project-cat-badge">IoT / Embedded</span>
+    <span class="project-year">2026</span>
+  </div>
+  <h1>Adhan Caller</h1>
+
+  <div class="project-layout">
+    <div class="project-body">
+
+      <h3>Overview</h3>
+      <p>Adhan Caller is a Raspberry Pi-powered device that automatically plays the Islamic call to prayer (adhan) at the five daily prayer times. It calculates accurate prayer times based on GPS location and the selected calculation method, then triggers audio playback through a connected speaker system.</p>
+
+      <h3>Motivation</h3>
+      <p>I built this as a practical project to learn embedded systems and also as a personal gift for my grandparents, who wanted an automated adhan caller for their home but couldn't find an affordable and customizable solution locally.</p>
+
+      <h3>How It Works</h3>
+      <p>The system runs a Python script on boot that fetches prayer times from the Aladhan API for the configured location. Times are stored locally in SQLite so it works without internet after initial sync. A scheduler triggers <code style="font-family:'Fira Code',monospace;font-size:13px;background:#f2f2f0;padding:2px 5px;border-radius:4px">aplay</code> at each prayer time to play the selected adhan audio file through the audio output.</p>
+
+      <h3>Key Features</h3>
+      <ul>
+        <li>Automatic prayer time calculation based on GPS coordinates</li>
+        <li>Multiple calculation methods supported (MUI, ISNA, Egyptian, etc.)</li>
+        <li>Offline mode — times cached locally in SQLite</li>
+        <li>Configurable adhan audio files per prayer</li>
+        <li>Volume control and silent mode schedule</li>
+        <li>Web UI for easy configuration (no SSH required)</li>
+        <li>Auto-starts on boot via systemd service</li>
+      </ul>
+
+      <h3>Hardware</h3>
+      <ul>
+        <li>Raspberry Pi 3B+</li>
+        <li>USB audio adapter</li>
+        <li>Passive speaker with amplifier board</li>
+        <li>3D-printed enclosure</li>
+      </ul>
+
+      <h3>What I Learned</h3>
+      <p>This project was my first hands-on experience with embedded Linux and hardware interfacing. Managing audio on Linux, handling systemd services, and building a lightweight web UI for config were all new territory for me. The hardest part was getting reliable audio playback without glitches at exact scheduled times.</p>
+
+    </div>
+
+    <div class="project-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Tech Stack</div>
+        <div class="sidebar-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Linux Server</span>
+          <span class="tag">SQLite</span>
+          <span class="tag">systemd</span>
+          <span class="tag">Aladhan API</span>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Links</div>
+        <div class="sidebar-links">
+          <a class="sidebar-link" href="https://github.com/demuuus/adhan-automation-server" target="_blank">
+            🐙 View on GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Details</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div>
+            <div style="font-size:11px;font-family:'Fira Code',monospace;color:#aaa;margin-bottom:3px">Status</div>
+            <div style="font-size:13px;font-weight:500;color:#166534">🟢 Running</div>
+          </div>
+          <div>
+            <div style="font-size:11px;font-family:'Fira Code',monospace;color:#aaa;margin-bottom:3px">Type</div>
+            <div style="font-size:13px;font-weight:500">Personal / IoT</div>
+          </div>
+          <div>
+            <div style="font-size:11px;font-family:'Fira Code',monospace;color:#aaa;margin-bottom:3px">Year</div>
+            <div style="font-size:13px;font-weight:500">2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-nav">
+    <a class="project-nav-btn" href="../projects/tuschology-idx-bot.html">
+      <span class="project-nav-label">← Previous project</span>
+      <span class="project-nav-title">Tuschology-IDX-Bot</span>
+    </a>
+    <a class="project-nav-btn right" href="../projects/auremind.html">
+      <span class="project-nav-label">Next project →</span>
+      <span class="project-nav-title">AureMind</span>
+    </a>
+  </div>
+
+</div>
+
+<footer>built by <span>Demas Anggara</span> · Portfolio · 2026</footer>
+<script src="../script.js"></script>
+</body>
+</html>
