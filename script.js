@@ -54,3 +54,9 @@ function filter(cat, btn) {
     card.style.display = (cat === 'all' || card.dataset.c === cat) ? '' : 'none';
   });
 }
+
+// Show success message if redirected back after form submit
+if (window.location.search.includes('sent=true')) {
+  const msg = document.getElementById('ok-msg');
+  if (msg) msg.style.display = 'block';
+}

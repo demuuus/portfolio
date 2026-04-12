@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact — Demas Anggara</title>
   <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
 
@@ -22,41 +23,49 @@
 
 <div class="contact-layout">
   <h2>Let's work together.</h2>
-  <p>Open to internships, project collabs, or just a chat about tech. Reach out through any channel below.</p>
+  <p>Open to internships, project collaborations, or just a chat about anything. Reach out through any channel below.</p>
 
   <div class="contact-grid">
     <div>
       <div class="contact-col-title">Find me online</div>
 
       <a class="soc-card" href="https://github.com/demuuus" target="_blank">
-        <div class="soc-icon gh">🐙</div>
+        <div class="soc-icon gh" style="background:#f0f0ff"><i class="fa-brands fa-github"></i></div>
         <div class="soc-info"><h4>GitHub</h4><p>@demuuus</p></div>
         <span class="soc-arrow">↗</span>
       </a>
       <a class="soc-card" href="https://www.linkedin.com/in/demasanggara/" target="_blank">
-        <div class="soc-icon li">💼</div>
+        <div class="soc-icon li" style="background:#f0f0ff"><i class="fa-brands fa-linkedin"></i></div>
         <div class="soc-info"><h4>LinkedIn</h4><p>Demas Anggara</p></div>
         <span class="soc-arrow">↗</span>
       </a>
       <a class="soc-card" href="https://www.instagram.com/demuuus/" target="_blank">
-        <div class="soc-icon tw">🐦</div>
+        <div class="soc-icon ig" style="background:#f0f0ff"><i class="fa-brands fa-instagram"></i></div>
         <div class="soc-info"><h4>Instagram</h4><p>@demuuus</p></div>
         <span class="soc-arrow">↗</span>
       </a>
+      <a class="soc-card" href="" style="cursor:default">
+        <div class="soc-icon ig" style="background:#f0f0ff"><i class="fa-brands fa-discord"></i></div>
+        <div class="soc-info"><h4>Discord</h4><p>@sandwichcunt</p></div>
+        <span class="soc-arrow">↗</span>
+      </a>
       <a class="soc-card" href="mailto:demas.anggara04@gmail.com">
-        <div class="soc-icon em">✉️</div>
+        <div class="soc-icon em" style="background:#f0f0ff"><i class="fa-solid fa-envelope"></i></div>
         <div class="soc-info"><h4>Email</h4><p>demas.anggara04@gmail.com</p></div>
         <span class="soc-arrow">↗</span>
       </a>
     </div>
-
+    
     <div>
       <div class="contact-col-title">Send a message</div>
-      <div class="form-group"><label class="form-label">Name</label><input class="form-input" placeholder="Your Name" type="text"/></div>
-      <div class="form-group"><label class="form-label">Email</label><input class="form-input" placeholder="your.email@example.com" type="email"/></div>
-      <div class="form-group"><label class="form-label">Subject</label><input class="form-input" placeholder="Internship / Collab / Just saying hi" type="text"/></div>
-      <div class="form-group"><label class="form-label">Message</label><textarea class="form-input" placeholder="What's on your mind?"></textarea></div>
-      <button class="submit-btn" onclick="submitForm()">Send message →</button>
+      <form action="https://formspree.io/f/mlgarwoo" method="POST">
+        <input type="hidden" name="_next" value="https://demuuus.github.io/portfolio/contact.html?sent=true"/>
+        <div class="form-group"><label class="form-label">Name</label><input class="form-input" name="name" placeholder="Your Name" type="text" required/></div>
+        <div class="form-group"><label class="form-label">Email</label><input class="form-input" name="email" placeholder="your.email@example.com" type="email" required/></div>
+        <div class="form-group"><label class="form-label">Subject</label><input class="form-input" name="subject" placeholder="Internship / Collab / Say hi!" type="text"/></div>
+        <div class="form-group"><label class="form-label">Message</label><textarea class="form-input" name="message" placeholder="What's up?"></textarea></div>
+        <button class="submit-btn" type="submit">Send message →</button>
+      </form>
       <div class="success-msg" id="ok-msg">✓ Thanks! I'll get back to you within 24 hours.</div>
     </div>
   </div>
