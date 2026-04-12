@@ -60,31 +60,3 @@ if (window.location.search.includes('sent=true')) {
   const msg = document.getElementById('ok-msg');
   if (msg) msg.style.display = 'block';
 }
-
-const form = document.getElementById('contact-form');
-if (form) {
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-
-    const btn = form.querySelector('button[type="submit"]');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-
-    const data = new FormData(form);
-
-    const res = await fetch('https://formspree.io/f/mlgarwoo', {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    });
-
-    if (res.ok) {
-      form.style.display = 'none';
-      document.getElementById('ok-msg').style.display = 'block';
-    } else {
-      btn.textContent = 'Send message →';
-      btn.disabled = false;
-      alert('Something went wrong. Please try again.');
-    }
-  });
-}
