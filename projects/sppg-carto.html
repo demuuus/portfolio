@@ -5,19 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SPPG Carto — Demas Anggara</title>
   <link rel="stylesheet" href="../style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
 
 <nav>
-  <a class="nav-brand" href="../index.html">demas<em>.anggara</em></a>
-  <div class="nav-links">
-    <a class="nav-btn" href="../index.html">Home</a>
-    <a class="nav-btn" href="../projects.html">Projects</a>
-    <a class="nav-btn" href="../about.html">About</a>
-    <a class="nav-btn" href="../contact.html">Contact</a>
+  <a class="nav-brand" href="index.html">demas<em>.anggara</em></a>
+  <div class="nav-links" id="nav-links">
+    <a class="nav-btn" href="index.html">Home</a>
+    <a class="nav-btn" href="projects.html">Projects</a>
+    <a class="nav-btn" href="about.html">About</a>
+    <a class="nav-btn" href="contact.html">Contact</a>
   </div>
   <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
-  <a class="nav-hire" href="../contact.html">Hire me</a>
+  <a class="nav-hire" href="contact.html">Hire me</a>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
 <div class="project-detail">
@@ -28,7 +34,7 @@
     <span>Badan Gizi Nasional - SPPG Carto</span>
   </div>
 
-  <div class="project-hero c2">🗺️</div>
+  <div class="project-hero c2"><img src="../assets/sppg_carto.jpg" alt="SPPG Carto"/></div>
 
   <div class="project-meta-row">
     <span class="project-cat-badge">Web App</span>
@@ -98,11 +104,11 @@
       <div class="sidebar-card">
         <div class="sidebar-card-title">Links</div>
         <div class="sidebar-links">
-          <a class="sidebar-link" href="https://thunbergii.app.carto.com/map/ea0044d2-b3b8-48b0-bc9c-544caa45ee95" target="_blank">
-            🐙 View on Carto
+          <a class="sidebar-link" href="https://github.com/demuuus/bgn_sppg_data_scrape" target="_blank">
+            <i class="fa-brands fa-github"></i> View on GitHub
           </a>
-          <a class="sidebar-link" href="#" target="_blank">
-            🌐 Live Demo
+          <a class="sidebar-link" href="https://thunbergii.app.carto.com/map/ea0044d2-b3b8-48b0-bc9c-544caa45ee95" target="_blank">
+            <i class="fa-brands fa-carto"></i> Live on Carto
           </a>
         </div>
       </div>

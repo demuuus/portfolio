@@ -11,7 +11,7 @@
 
 <nav>
   <a class="nav-brand" href="index.html">demas<em>.anggara</em></a>
-  <div class="nav-links">
+  <div class="nav-links" id="nav-links">
     <a class="nav-btn" href="index.html">Home</a>
     <a class="nav-btn" href="projects.html">Projects</a>
     <a class="nav-btn" href="about.html">About</a>
@@ -19,6 +19,11 @@
   </div>
   <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
   <a class="nav-hire" href="contact.html">Hire me</a>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
 <div class="contact-layout">
@@ -58,10 +63,11 @@
     
     <div>
       <div class="contact-col-title">Send a message</div>
-      <form id="contact-form">
+      <form action="https://formspree.io/f/mlgarwoo" method="POST">
+        <input type="hidden" name="_next" value="https://demuuus.github.io/portfolio/contact.html?sent=true"/>
         <div class="form-group"><label class="form-label">Name</label><input class="form-input" name="name" placeholder="Your Name" type="text" required/></div>
         <div class="form-group"><label class="form-label">Email</label><input class="form-input" name="email" placeholder="your.email@example.com" type="email" required/></div>
-        <div class="form-group"><label class="form-label">Subject</label><input class="form-input" name="subject" placeholder="Internship / Collab / Just saying hi!" type="text"/></div>
+        <div class="form-group"><label class="form-label">Subject</label><input class="form-input" name="subject" placeholder="Internship / Collab / Say hi!" type="text"/></div>
         <div class="form-group"><label class="form-label">Message</label><textarea class="form-input" name="message" placeholder="What's up?"></textarea></div>
         <button class="submit-btn" type="submit">Send message →</button>
       </form>
@@ -80,34 +86,5 @@
 
 <footer>built by <span>Demas Anggara</span> · Portfolio · 2026</footer>
 <script src="script.js"></script>
-<script>
-  const form = document.getElementById('contact-form');
-  if (form) {
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-
-      const btn = form.querySelector('button[type="submit"]');
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
-
-      const data = new FormData(form);
-
-      const res = await fetch('https://formspree.io/f/mlgarwoo', {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (res.ok) {
-        form.style.display = 'none';
-        document.getElementById('ok-msg').style.display = 'block';
-      } else {
-        btn.textContent = 'Send message →';
-        btn.disabled = false;
-        alert('Something went wrong. Please try again.');
-      }
-    });
-  }
-</script>
 </body>
 </html>

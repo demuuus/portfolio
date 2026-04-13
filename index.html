@@ -11,7 +11,7 @@
 
 <nav>
   <a class="nav-brand" href="index.html">demas<em>.anggara</em></a>
-  <div class="nav-links">
+  <div class="nav-links" id="nav-links">
     <a class="nav-btn" href="index.html">Home</a>
     <a class="nav-btn" href="projects.html">Projects</a>
     <a class="nav-btn" href="about.html">About</a>
@@ -19,6 +19,11 @@
   </div>
   <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
   <a class="nav-hire" href="contact.html">Hire me</a>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -105,7 +110,7 @@
   <div class="card-grid-3">
 
     <a class="proj-card" href="projects/sppg-carto.html">
-      <div class="proj-top c2">🗺️</div>
+      <div class="proj-top c2"><img src="../assets/sppg_carto.jpg" alt="SPPG Carto"/></div>
       <div class="proj-body">
         <div class="proj-cat">Web App · 2026</div>
         <div class="proj-title">Badan Gizi Nasional - SPPG Carto</div>
@@ -139,7 +144,7 @@
     </a>
 
     <a class="proj-card" href="projects/adhan-caller.html">
-      <div class="proj-top c3">🕌</div>
+      <div class="proj-top c3"><img src="assets/adhan_caller.jpg" alt="Adhan Caller"/></div>
       <div class="proj-body">
         <div class="proj-cat">Embedded / IoT · 2026</div>
         <div class="proj-title">Adhan Caller</div>

@@ -5,19 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tuschology — Demas Anggara</title>
   <link rel="stylesheet" href="../style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
 
 <nav>
-  <a class="nav-brand" href="../index.html">demas<em>.anggara</em></a>
-  <div class="nav-links">
-    <a class="nav-btn" href="../index.html">Home</a>
-    <a class="nav-btn" href="../projects.html">Projects</a>
-    <a class="nav-btn" href="../about.html">About</a>
-    <a class="nav-btn" href="../contact.html">Contact</a>
+  <a class="nav-brand" href="index.html">demas<em>.anggara</em></a>
+  <div class="nav-links" id="nav-links">
+    <a class="nav-btn" href="index.html">Home</a>
+    <a class="nav-btn" href="projects.html">Projects</a>
+    <a class="nav-btn" href="about.html">About</a>
+    <a class="nav-btn" href="contact.html">Contact</a>
   </div>
   <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
-  <a class="nav-hire" href="../contact.html">Hire me</a>
+  <a class="nav-hire" href="contact.html">Hire me</a>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
 <div class="project-detail">
@@ -44,31 +50,47 @@
     <div class="project-body">
 
       <h3>Overview</h3>
-      <p>Tuschology-IDX-Bot is an automated stock news aggregator bot that collects and delivers the latest Indonesian financial market headlines directly to a Telegram channel. Built to help retail investors stay informed without having to manually check multiple news sources throughout the day.</p>
+      <p>Tuschology-IDX-Bot is a real-time market intelligence bot that monitors Indonesian stock market activity by combining official IDX (Indonesia Stock Exchange) announcements with curated financial news feeds. It delivers structured alerts to both Discord and Telegram, enabling retail investors to stay informed without manually tracking multiple platforms.</p>
 
       <h3>Problem</h3>
-      <p>Indonesian retail investors often miss important market-moving news because financial information is scattered across multiple sites and portals. Manually tracking these sources every few hours is time-consuming and easy to miss.</p>
+      <p>Indonesian retail investors often miss critical market-moving events such as suspensions, unusual market activity (UMA), and corporate disclosures because information is fragmented across the IDX website and various financial news portals. Monitoring these sources manually is inefficient and increases the risk of delayed decision-making.</p>
 
       <h3>Solution</h3>
-      <p>The bot runs on a scheduled cron job, scraping news from trusted Indonesian financial news sources. It filters relevant stock-related articles, deduplicates them, and pushes formatted summaries to a Telegram channel with ticker symbols highlighted.</p>
+      <p>This bot continuously runs asynchronous pipelines that:</p>
+      <ul>
+        <li>Scrape official IDX announcement pages for high-priority market events</li>
+        <li>Aggregate financial news from multiple RSS feeds</li>
+        <li>Filter and deduplicate content in real-time</li>
+        <li>Deliver structured alerts instantly to Discord and Telegram</li>
+      </ul>
+      <p>The system also adapts its behavior based on market conditions, including maintenance detection and trading hours awareness.</p>
 
       <h3>Key Features</h3>
       <ul>
-        <li>Scrapes multiple Indonesian financial news sources every 30 minutes</li>
-        <li>Deduplication engine to avoid sending the same news twice</li>
-        <li>Stock ticker detection and tagging in headlines</li>
-        <li>Formatted Telegram messages with article links</li>
-        <li>Simple SQLite database to track sent articles</li>
-        <li>Error handling and retry logic for failed requests</li>
+        <li>IDX Priority Monitoring which detects and categorizes Suspensions, Unusual Market Activity (UMA), Disclosure, General issuer announcements</li>
+        <li>Multi-source RSS Aggregation which integrates with CNBC Indonesia, CNN Indonesia, Tempo, Antara, Kontan, and Bloomberg Indonesia</li>
+        <li>Real-time Async Processing</li>
+        <li>Deduplication System which uses hashed URLs and in-memory cache to prevent duplicate alerts</li>
+        <li>Discord Integration with topic based routing, multi-server support, dynamic rich presence based on market state</li>
+        <li>Telegram Integration with broadcast alerts, status command, real-time system metrics</li>
+        <li>State Persistence which is JSON-based storage for sent IDX announcements and last seen RSS entries</li>
       </ul>
 
       <h3>Technical Challenges</h3>
-      <p>The main challenge was handling anti-scraping measures on some news sites and dealing with inconsistent HTML structures across sources. I implemented rotating request headers and a fallback RSS parser for sites that support it.</p>
-      <p>Another challenge was building a reliable deduplication system — the same news often gets republished with slightly different titles across portals. I ended up using a fuzzy string matching approach based on headline similarity.</p>
+      <p>One of the main challenges was handling dynamic and inconsistent IDX website structures, where traditional scraping selectors often failed due to frontend changes. This was solved by implementing flexible anchor-based parsing combined with path filtering.</p>
+      <p>Another challenge was ensuring system stability in an always-on asynchronous environment. Without cron-based execution, failures could silently stop pipelines. This required careful exception handling, state persistence, and process management strategies.</p>
+      <p>Additionally, managing real-time deduplication across multiple heterogeneous data sources required a reliable hashing strategy to avoid repeated alerts while maintaining performance.</p>
 
       <h3>What I Learned</h3>
-      <p>This project taught me a lot about web scraping reliability, scheduling in Python, and working with the Telegram Bot API. It's been running for over 6 months with minimal downtime.</p>
-
+      <p>This project deepened my understanding of:</p>
+      <ul>
+        <li>Asynchronous programming in Python for real-time data processing</li>
+        <li>Real-time data pipelines vs scheduled jobs</li>
+        <li>Multi-platform bot architecture (Discord + Telegram)</li>
+        <li>Resilient web scraping under changing frontend structures</li>
+        <li>State management without traditional databases</li>
+      </ul>
+      <p>It also introduced practical challenges in deploying and maintaining long-running services, including process supervision, error recovery, and production stability.</p>
     </div>
 
     <!-- Sidebar -->
@@ -89,10 +111,10 @@
         <div class="sidebar-card-title">Links</div>
         <div class="sidebar-links">
           <a class="sidebar-link" href="https://github.com/demuuus/Tuschology-IDX-Bot" target="_blank">
-            🐙 View on GitHub
+            <i class="fa-brands fa-github"></i> View on GitHub
           </a>
           <a class="sidebar-link" href="https://t.me/+xhE4foKY7A02MWZl" target="_blank">
-            ✈️ Telegram Channel
+            <i class="fa-brands fa-telegram"></i> Telegram Channel
           </a>
         </div>
       </div>

@@ -5,19 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AureMind — Demas Anggara</title>
   <link rel="stylesheet" href="../style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
 
 <nav>
-  <a class="nav-brand" href="../index.html">demas<em>.anggara</em></a>
-  <div class="nav-links">
-    <a class="nav-btn" href="../index.html">Home</a>
-    <a class="nav-btn" href="../projects.html">Projects</a>
-    <a class="nav-btn" href="../about.html">About</a>
-    <a class="nav-btn" href="../contact.html">Contact</a>
+  <a class="nav-brand" href="index.html">demas<em>.anggara</em></a>
+  <div class="nav-links" id="nav-links">
+    <a class="nav-btn" href="index.html">Home</a>
+    <a class="nav-btn" href="projects.html">Projects</a>
+    <a class="nav-btn" href="about.html">About</a>
+    <a class="nav-btn" href="contact.html">Contact</a>
   </div>
   <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
-  <a class="nav-hire" href="../contact.html">Hire me</a>
+  <a class="nav-hire" href="contact.html">Hire me</a>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
 <div class="project-detail">
@@ -28,7 +34,7 @@
     <span>AureMind</span>
   </div>
 
-  <div class="project-hero c4"><img src="../assets/Auremind Logo.png" alt="Tuschology"/></div>
+  <div class="project-hero c4"><img src="../assets/auremind_bg.jpg" alt="Tuschology"/></div>
 
   <div class="project-meta-row">
     <span class="project-cat-badge">College Project</span>
@@ -40,22 +46,24 @@
     <div class="project-body">
 
       <h3>Overview</h3>
-      <p>A desktop application developed as part of a database systems and software engineering course. The project demonstrates practical implementation of relational database concepts, CRUD operations, and a JavaFX graphical user interface.</p>
+      <p>Auremind is an AI-powered note-taking web application designed to help students study more effectively through structured knowledge management and intelligent assistance. Inspired by Notion and Obsidian, the platform combines traditional note organization with AI-driven features such as concept definition, semantic search, and automated note generation.</p>
 
       <h3>Project Brief</h3>
-      <p>The assignment required building a complete data management system from scratch, including database design, normalization, query optimization, and a user-facing GUI. The system had to support multiple user roles with different access levels.</p>
+      <p>The project focuses on building a modern web-based study tool that enhances how students capture, organize, and retrieve knowledge. It integrates AI capabilities into the note-taking workflow, allowing users to not only store information but also interact with it dynamically. The system emphasizes usability, scalability, and efficient information retrieval.</p>
 
       <h3>What Was Built</h3>
-      <p>A student records management system with separate admin and user interfaces. Admins can manage student data, course enrollments, and generate reports. Regular users can view their own records and submit requests.</p>
+      <p>A full-stack web application that allows users to create, edit, and organize notes in a structured environment. The platform incorporates AI features to assist users in generating notes, defining concepts, and quickly searching across their knowledge base. It supports a flexible note structure similar to block-based editors and interconnected knowledge systems.</p>
 
       <h3>Key Features</h3>
       <ul>
-        <li>Relational database with normalized schema (3NF)</li>
-        <li>Role-based access control (admin vs. student)</li>
-        <li>JavaFX UI with table views, forms, and dialogs</li>
-        <li>CRUD operations for students, courses, and enrollments</li>
-        <li>Report generation with filtered exports</li>
-        <li>Password hashing for user authentication</li>
+        <li>AI-powered note generation and summarization</li>
+        <li>Context-aware definitions for study concepts</li>
+        <li>User authentication and profile management</li>
+        <li>Organize tasks and personal schedules</li>
+        <li>Clean and responsive web interface</li>
+        <li>Semantic search across all notes</li>
+        <li>Create, edit, and delete notes</li>
+        <li>Django-powered backend</li>
       </ul>
 
       <h3>Database Design</h3>
@@ -82,7 +90,7 @@
         <div class="sidebar-card-title">Links</div>
         <div class="sidebar-links">
           <a class="sidebar-link" href="https://github.com/demuuus/AureMind" target="_blank">
-            🐙 View on GitHub
+            <i class="fa-brands fa-github"></i> View on GitHub
           </a>
         </div>
       </div>

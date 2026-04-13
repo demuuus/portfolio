@@ -5,19 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Adhan Caller — Demas Anggara</title>
   <link rel="stylesheet" href="../style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
 
 <nav>
-  <a class="nav-brand" href="../index.html">demas<em>.anggara</em></a>
-  <div class="nav-links">
-    <a class="nav-btn" href="../index.html">Home</a>
-    <a class="nav-btn" href="../projects.html">Projects</a>
-    <a class="nav-btn" href="../about.html">About</a>
-    <a class="nav-btn" href="../contact.html">Contact</a>
+  <a class="nav-brand" href="index.html">demas<em>.anggara</em></a>
+  <div class="nav-links" id="nav-links">
+    <a class="nav-btn" href="index.html">Home</a>
+    <a class="nav-btn" href="projects.html">Projects</a>
+    <a class="nav-btn" href="about.html">About</a>
+    <a class="nav-btn" href="contact.html">Contact</a>
   </div>
   <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
-  <a class="nav-hire" href="../contact.html">Hire me</a>
+  <a class="nav-hire" href="contact.html">Hire me</a>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
 <div class="project-detail">
@@ -28,7 +34,7 @@
     <span>Adhan Caller</span>
   </div>
 
-  <div class="project-hero c3">🕌</div>
+  <div class="project-hero c3"><img src="../assets/adhan_caller.jpg" alt="Adhan Caller"/></div>
 
   <div class="project-meta-row">
     <span class="project-cat-badge">IoT / Embedded</span>
@@ -40,35 +46,42 @@
     <div class="project-body">
 
       <h3>Overview</h3>
-      <p>Adhan Caller is a Raspberry Pi-powered device that automatically plays the Islamic call to prayer (adhan) at the five daily prayer times. It calculates accurate prayer times based on GPS location and the selected calculation method, then triggers audio playback through a connected speaker system.</p>
+      <p>Adhan Automation Server is a lightweight Python-based system that automatically plays the Islamic call to prayer (adhan) at the five daily prayer times. It fetches accurate timings from the Aladhan API based on a configured city and calculation method, schedules playback, and runs continuously as a background service on a Linux machine.</p>
+      <p>The system is designed to run on low-power devices such as old laptops or home servers, providing a reliable and low-cost adhan solution without requiring specialized hardware.</p>
 
       <h3>Motivation</h3>
-      <p>I built this as a practical project to learn embedded systems and also as a personal gift for my grandparents, who wanted an automated adhan caller for their home but couldn't find an affordable and customizable solution locally.</p>
+      <p>This project was built as a practical automation system to solve a real-world need: having a consistent, automated adhan player at home without relying on mobile apps or expensive dedicated devices.</p>
+      <p>It also served as a hands-on way to explore:</p>
+      <ul>
+        <li>Linux system services (systemd)</li>
+        <li>Automation scripting in Python</li>
+        <li>Real-time scheduling and reliability under unstable network conditions</li>
+      </ul>
 
       <h3>How It Works</h3>
-      <p>The system runs a Python script on boot that fetches prayer times from the Aladhan API for the configured location. Times are stored locally in SQLite so it works without internet after initial sync. A scheduler triggers <code style="font-family:'Fira Code',monospace;font-size:13px;background:#f2f2f0;padding:2px 5px;border-radius:4px">aplay</code> at each prayer time to play the selected adhan audio file through the audio output.</p>
+      <p>The system runs as a background service on a Linux machine. When it starts, it fetches prayer times from the Aladhan API using the configured location and stores them locally in a cache file. This allows the system to continue functioning even when offline. A scheduler continuously runs in the background, triggering a reminder audio two minutes before each prayer and the full adhan exactly at the scheduled time. The system automatically refreshes prayer times daily and includes a retry mechanism to handle temporary network failures, ensuring that schedules are eventually updated without manual intervention.</p>
 
       <h3>Key Features</h3>
       <ul>
-        <li>Automatic prayer time calculation based on GPS coordinates</li>
-        <li>Multiple calculation methods supported (MUI, ISNA, Egyptian, etc.)</li>
-        <li>Offline mode — times cached locally in SQLite</li>
-        <li>Configurable adhan audio files per prayer</li>
-        <li>Volume control and silent mode schedule</li>
-        <li>Web UI for easy configuration (no SSH required)</li>
-        <li>Auto-starts on boot via systemd service</li>
+        <li>Scheduling & Automation which plays automatic adhan playback for all five daily prayers, pre-adhan reminder (2 minutes before each prayer), and daily schedule refresh with retry mechanism</li>
+        <li>Network Resilience which automatically retry when internet connection is restored, Offline mode using cached prayer times (cache.json), and No manual restart required after network failure</li>
+        <li>Smart Refresh Logic which prevents unnecessary API calls (refreshes only once per day), detects outdated cache and updates automatically, and handles missed midnight refresh due to downtime</li>
+        <li>Audio System uses mpg123 for reliable MP3 playback and supports custom adhan and reminder audio files</li>
+        <li>System Integration runs as a systemd service, auto-starts on boot, and automatically restarts on failure</li>
+        <li>Monitoring & Debugging</li>
       </ul>
 
       <h3>Hardware</h3>
+      <p>This system is designed to run on:</p>
       <ul>
-        <li>Raspberry Pi 3B+</li>
-        <li>USB audio adapter</li>
-        <li>Passive speaker with amplifier board</li>
-        <li>3D-printed enclosure</li>
+        <li>Old laptops repurposed as home servers</li>
+        <li>Linux machines (Ubuntu/Debian-based)</li>
+        <li>Any device capable of running Python + systemd</li>
       </ul>
 
       <h3>What I Learned</h3>
-      <p>This project was my first hands-on experience with embedded Linux and hardware interfacing. Managing audio on Linux, handling systemd services, and building a lightweight web UI for config were all new territory for me. The hardest part was getting reliable audio playback without glitches at exact scheduled times.</p>
+      <p>Through this project, I gained practical experience in building a long-running automation system that must remain stable over time. This included working with systemd services, handling scheduling logic, and designing systems that can recover from failures without user input. A significant part of the learning process involved dealing with real-world edge cases such as missed scheduled events, stale cached data, and unreliable network connectivity.</p>
+      <p>One of the most challenging aspects was ensuring that the system remains accurate and self-correcting. Implementing a retry-based refresh mechanism and tying refresh logic to persistent state (rather than in-memory variables) were key steps in making the system robust. Debugging through logs and system-level tools like journalctl also played an important role in understanding how the system behaves in production.</p>
 
     </div>
 
@@ -88,7 +101,7 @@
         <div class="sidebar-card-title">Links</div>
         <div class="sidebar-links">
           <a class="sidebar-link" href="https://github.com/demuuus/adhan-automation-server" target="_blank">
-            🐙 View on GitHub
+            <i class="fa-brands fa-github"></i> View on GitHub
           </a>
         </div>
       </div>

@@ -51,7 +51,8 @@ function filter(cat, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   document.querySelectorAll('.proj-grid .proj-card').forEach(card => {
-    card.style.display = (cat === 'all' || card.dataset.c === cat) ? '' : 'none';
+        const categories = card.dataset.c.split(' ');
+    card.style.display = (cat === 'all' || categories.includes(cat)) ? '' : 'none';
   });
 }
 
@@ -60,3 +61,18 @@ if (window.location.search.includes('sent=true')) {
   const msg = document.getElementById('ok-msg');
   if (msg) msg.style.display = 'block';
 }
+
+function toggleMenu() {
+  const links = document.getElementById('nav-links');
+  const hamburger = document.getElementById('hamburger');
+  links.classList.toggle('open');
+  hamburger.classList.toggle('open');
+}
+
+// Close menu when a nav link is clicked
+document.querySelectorAll('.nav-links .nav-btn').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('nav-links').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  });
+});
