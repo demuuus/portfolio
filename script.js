@@ -63,3 +63,23 @@ document.querySelectorAll('.nav-links .nav-btn').forEach(link => {
     document.getElementById('hamburger').classList.remove('open');
   });
 });
+
+// ── SCROLL REVEAL ──
+// Content is fully visible without JS; motion is only enabled when allowed.
+(function () {
+  const sections = document.querySelectorAll('.reveal');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!sections.length || reduceMotion || !('IntersectionObserver' in window)) return;
+
+  document.documentElement.classList.add('motion');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('in-view');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.15 });
+
+  sections.forEach(section => observer.observe(section));
+})();
