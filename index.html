@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Demas Anggara — Portfolio</title>
-  <meta name="description" content="CS student building full-stack apps and exploring ML."/>
+  <meta name="description" content="Data science and machine learning portfolio of Demas Fadel Anggara."/>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
@@ -32,10 +32,10 @@
     <div>
       <div class="badge"><span class="badge-dot"></span>Open to internships &amp; projects</div>
       <h1 class="hero-name">Hi, I'm<br><span>Demas F. Anggara</span></h1>
-      <p class="hero-role">Computer Science Student · Full-Stack Developer · Machine Learning & Data Science Enthusiast</p>
-      <p class="hero-desc">Driven by curiosity and problem-solving, I create technology projects that combine software engineering, machine learning, and meaningful user experiences.</p>
+      <p class="hero-role">Computer Science Graduate · Data Science &amp; Machine Learning</p>
+      <p class="hero-desc">I turn raw, messy data into decisions: auditing data quality, testing hypotheses with statistics, and building machine learning models with honest, leakage-free validation.</p>
       <div class="btn-row">
-        <a class="btn-dark" href="projects.html">Personal Projects →</a>
+        <a class="btn-dark" href="projects.html">View Projects →</a>
         <a class="btn-light" href="about.html">About me</a>
       </div>
     </div>
@@ -52,7 +52,7 @@
           <div class="t-dim">{</div>
           <div class="t-dim">&nbsp;&nbsp;<span class="t-b">"name"</span>: <span class="t-y">"Demas Fadel Anggara"</span>,</div>
           <div class="t-dim">&nbsp;&nbsp;<span class="t-b">"year"</span>: <span class="t-y">"Fresh Graduate"</span>,</div>
-          <div class="t-dim">&nbsp;&nbsp;<span class="t-b">"focus"</span>: <span class="t-y">"Full-stack + ML + AI + Server"</span>,</div>
+          <div class="t-dim">&nbsp;&nbsp;<span class="t-b">"focus"</span>: <span class="t-y">"Data Science + Machine Learning"</span>,</div>
           <div class="t-dim">&nbsp;&nbsp;<span class="t-b">"status"</span>: <span class="t-g">"open to work ✓"</span></div>
           <div class="t-dim">}</div>
           <div style="margin-top:4px"><span class="t-g">❯</span> <span class="cursor"></span></div>
@@ -71,16 +71,17 @@
 <div class="tech-strip">
   <span class="tech-label">Stack:</span>
   <span class="tech-pill">Python</span>
-  <span class="tech-pill">JavaScript</span>
   <span class="tech-pill">SQL</span>
-  <span class="tech-pill">HTML &amp; CSS</span>
-  <span class="tech-pill">Django</span>
   <span class="tech-pill">Pandas</span>
   <span class="tech-pill">NumPy</span>
-  <span class="tech-pill">Scikit-learn</span>
-  <span class="tech-pill">Git</span>
-  <span class="tech-pill">Linux</span>
-  <span class="tech-pill">Docker</span>
+  <span class="tech-pill">SciPy</span>
+  <span class="tech-pill">scikit-learn</span>
+  <span class="tech-pill">XGBoost</span>
+  <span class="tech-pill">LightGBM</span>
+  <span class="tech-pill">Matplotlib</span>
+  <span class="tech-pill">Seaborn</span>
+  <span class="tech-pill">Tableau</span>
+  <span class="tech-pill">Jupyter</span>
 </div>
 
 <!-- FEATURED PROJECTS -->
@@ -91,10 +92,42 @@
   </div>
   <div class="card-grid-3">
 
+    <a class="proj-card" href="projects/telco-churn.html">
+      <div class="proj-top c1"><img src="assets/telco_churn.png" alt="Telco Customer Churn"/></div>
+      <div class="proj-body">
+        <div class="proj-cat">Machine Learning · 2026</div>
+        <div class="proj-title">Telco Customer Churn</div>
+        <div class="proj-desc">Churn classification model comparing six algorithms with nested cross-validation, with a cost-based decision threshold for targeting retention offers.</div>
+        <div class="proj-tags">
+          <span class="tag">Python</span>
+          <span class="tag">scikit-learn</span>
+          <span class="tag">XGBoost</span>
+          <span class="tag">LightGBM</span>
+          <span class="tag">Pandas</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="proj-card" href="projects/bluebird-analysis.html">
+      <div class="proj-top c2"><img src="assets/bluebird.jpg" alt="Bluebird"/></div>
+      <div class="proj-body">
+        <div class="proj-cat">Data · 2026</div>
+        <div class="proj-title">Bluebird - Data Analysis</div>
+        <div class="proj-desc">Operational analysis of 318,000+ Bluebird taxi trips, covering demand fulfillment, fleet productivity, and eVoucher Corporate patterns across five tested hypotheses.</div>
+        <div class="proj-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">SciPy</span>
+          <span class="tag">Matplotlib</span>
+        </div>
+      </div>
+    </a>
+
     <a class="proj-card" href="projects/sppg-carto.html">
       <div class="proj-top c2"><img src="assets/sppg_carto.jpg" alt="SPPG Carto"/></div>
       <div class="proj-body">
-        <div class="proj-cat">Web App · 2026</div>
+        <div class="proj-cat">Data Analysis · 2026</div>
         <div class="proj-title">Badan Gizi Nasional - SPPG Carto</div>
         <div class="proj-desc">End-to-end geospatial data pipeline and visualization system for mapping, enriching, and analyzing 26,000+ SPPG locations across Indonesia.</div>
         <div class="proj-tags">
@@ -106,35 +139,6 @@
           <span class="tag">Google Places API</span>
           <span class="tag">Carto</span>
           <span class="tag">GeoJSON</span>
-        </div>
-      </div>
-    </a>
-
-    <a class="proj-card" href="projects/tuschology-idx-bot.html">
-      <div class="proj-top c1"><img src="assets/Tuscho_Investing.png" alt="Tuschology"/></div>
-      <div class="proj-body">
-        <div class="proj-cat">Bot / Automation · 2025</div>
-        <div class="proj-title">Tuschology-IDX-Bot</div>
-        <div class="proj-desc">Real-time IDX announcement & Indonesian Market News Bot with priority alerts, structured scraping, Discord topic-based routing, Telegram broadcast, and dynamic market-aware presence system.</div>
-        <div class="proj-tags">
-          <span class="tag">Python</span>
-          <span class="tag">Telegram API</span>
-          <span class="tag">Discord API</span>
-          <span class="tag">BeautifulSoup</span>
-        </div>
-      </div>
-    </a>
-
-    <a class="proj-card" href="projects/adhan-caller.html">
-      <div class="proj-top c3"><img src="assets/adhan_caller.jpg" alt="Adhan Caller"/></div>
-      <div class="proj-body">
-        <div class="proj-cat">IoT / Embedded · 2026</div>
-        <div class="proj-title">Adhan Caller</div>
-        <div class="proj-desc">A Python-based Adhan automation service that fetches daily prayer times, schedules reminders, supports offline caching, and runs reliably as a systemd service on Linux servers.</div>
-        <div class="proj-tags">
-          <span class="tag">Python</span>
-          <span class="tag">Linux Server</span>
-          <span class="tag">SQLite</span>
         </div>
       </div>
     </a>

@@ -43,16 +43,6 @@ function submitForm() {
   }
 }
 
-// ── PROJECT FILTER ──
-function filter(cat, btn) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.proj-grid .proj-card').forEach(card => {
-        const categories = card.dataset.c.split(' ');
-    card.style.display = (cat === 'all' || categories.includes(cat)) ? '' : 'none';
-  });
-}
-
 // Show success message if redirected back after form submit
 if (window.location.search.includes('sent=true')) {
   const msg = document.getElementById('ok-msg');

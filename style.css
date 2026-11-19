@@ -591,36 +591,6 @@ h1.hero-name span {
   line-height: 1.7;
 }
 
-.filter-bar {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 28px;
-  flex-wrap: wrap;
-}
-
-.filter-btn {
-  font-size: 12px;
-  font-family: 'Fira Code', monospace;
-  padding: 6px 14px;
-  border-radius: 100px;
-  border: 1px solid var(--border-input);
-  background: var(--bg-card);
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: all 0.15s;
-}
-
-.filter-btn:hover {
-  border-color: var(--text);
-  color: var(--text);
-}
-
-.filter-btn.active {
-  background: var(--btn-primary-bg);
-  color: var(--btn-primary-text);
-  border-color: var(--btn-primary-bg);
-}
-
 .proj-grid {
   display: grid;
   grid-template-columns: repeat(3,1fr);
@@ -1343,4 +1313,9 @@ textarea.form-input {
   .nav-hire {
     display: none;
   }
+}
+
+/* ── PROJECTS PAGE SECTIONS ── */
+.sec-spaced {
+  margin-top: 56px;
 }
