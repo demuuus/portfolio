@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects — Demas Anggara</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html">demas<em>.anggara</em></a>
+  <div class="nav-links" id="nav-links">
+    <a class="nav-btn" href="index.html">Home</a>
+    <a class="nav-btn" href="projects.html">Projects</a>
+    <a class="nav-btn" href="about.html">About</a>
+    <a class="nav-btn" href="contact.html">Contact</a>
+  </div>
+  <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+  <a class="nav-hire" href="contact.html">Hire me</a>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<div class="projects-layout">
+  <div class="page-header">
+    <h2>Projects &amp; experiments</h2>
+    <p>Things I've built — from side projects to academic work.</p>
+  </div>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filter('all', this)">All</button>
+    <button class="filter-btn" onclick="filter('bot', this)">Automation</button>
+    <button class="filter-btn" onclick="filter('web', this)">Web App</button>
+    <button class="filter-btn" onclick="filter('iot', this)">IoT / Embedded</button>
+    <button class="filter-btn" onclick="filter('data', this)">Data</button>
+    <button class="filter-btn" onclick="filter('code', this)">Code</button>
+  </div>
+
+  <div class="proj-grid">
+
+    <a class="proj-card" href="projects/telco-churn.html" data-c="data">
+      <div class="proj-top c1"><img src="assets/telco_churn.png" alt="Telco Customer Churn"/></div>
+      <div class="proj-body">
+        <div class="proj-cat">Machine Learning · 2026</div>
+        <div class="proj-title">Telco Customer Churn</div>
+        <div class="proj-desc">Churn classification model comparing six algorithms with nested cross-validation, with a cost-based decision threshold for targeting retention offers.</div>
+        <div class="proj-tags">
+          <span class="tag">Python</span>
+          <span class="tag">scikit-learn</span>
+          <span class="tag">XGBoost</span>
+          <span class="tag">LightGBM</span>
+          <span class="tag">Pandas</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="proj-card" href="projects/bluebird-analysis.html" data-c="data">
+      <div class="proj-top c2"><img src="assets/bluebird.jpg" alt="Bluebird"/></div>
+      <div class="proj-body">
+        <div class="proj-cat">Data · 2026</div>
+        <div class="proj-title">Bluebird - Data Analysis</div>
+        <div class="proj-desc">Operational analysis of 318,000+ Bluebird taxi trips, covering demand fulfillment, fleet productivity, and eVoucher Corporate patterns across five tested hypotheses.</div>
+        <div class="proj-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">SciPy</span>
+          <span class="tag">Matplotlib</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="proj-card" href="projects/gopay-analysis.html" data-c="data">
+      <div class="proj-top c2"><img src="assets/gopay.jpg" alt="Gopay"/></div>
+      <div class="proj-body">
+        <div class="proj-cat">Data · 2026</div>
+        <div class="proj-title">Gopay - Data Analysis</div>
+        <div class="proj-desc">Credit risk investigation of GoPayLater across 300,000 transactions, auditing data anomalies, a credit limit validation bug, and the patterns behind defaulted payments.</div>
+        <div class="proj-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">SciPy</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="proj-card" href="projects/crud-python-store.html" data-c="code">
+      <div class="proj-top c2"><img src="assets/crud_python_store.jpg" alt="Store Discount Management System"/></div>
+      <div class="proj-body">
+        <div class="proj-cat">Code · 2026</div>
+        <div class="proj-title">Store Discount Management System</div>
+        <div class="proj-desc">Command-line app for managing minimarket promotions and applying percentage, Buy 2 Get 1, and fixed discounts at checkout with full rule validation.</div>
+        <div class="proj-tags">
+          <span class="tag">Python</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="proj-card" href="projects/argus.html" data-c="web">
+      <div class="proj-top c2"><img src="assets/argus.jpg" alt="Argus"/></div>
+      <div class="proj-body">
+        <div class="proj-cat">Web App · 2026</div>
+        <div class="proj-title">Argus</div>
+        <div class="proj-desc">Self-hosted, AI-assisted vulnerability management platform that matches assets against live CVE, KEV, and EPSS data and ranks findings by risk.</div>
+        <div class="proj-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Flask</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Telegram API</span>
+          <span class="tag">LLM</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="proj-card" href="projects/sppg-carto.html" data-c="web">
+      <div class="proj-top c2"><img src="assets/sppg_carto.jpg" alt="SPPG Carto"/></div>
+      <div class="proj-body">
+        <div class="proj-cat">Web App · 2026</div>
+        <div class="proj-title">Badan Gizi Nasional - SPPG Carto</div>
+        <div class="proj-desc">End-to-end geospatial data pipeline and visualization system for mapping, enriching, and analyzing 26,000+ SPPG locations across Indonesia.</div>
+        <div class="proj-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Requests</span>
+          <span class="tag">BeautifulSoup</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">Google Geocoding API</span>
+          <span class="tag">Google Places API</span>
+          <span class="tag">Carto</span>
+          <span class="tag">GeoJSON</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="proj-card" href="projects/tuschology-idx-bot.html" data-c="bot">
+      <div class="proj-top c1"><img src="assets/Tuscho_Investing.png" alt="Tuschology"/></div>
+      <div class="proj-body">
+        <div class="proj-cat">Bot / Automation · 2025</div>
+        <div class="proj-title">Tuschology-IDX-Bot</div>
+        <div class="proj-desc">Real-time IDX announcement & Indonesian Market News Bot with priority alerts, structured scraping, Discord topic-based routing, Telegram broadcast, and dynamic market-aware presence system.</div>
+        <div class="proj-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Telegram API</span>
+          <span class="tag">Discord API</span>
+          <span class="tag">BeautifulSoup</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="proj-card" href="projects/adhan-caller.html" data-c="iot">
+      <div class="proj-top c3"><img src="assets/adhan_caller.jpg" alt="Adhan Caller"/></div>
+      <div class="proj-body">
+        <div class="proj-cat">IoT / Embedded · 2026</div>
+        <div class="proj-title">Adhan Caller</div>
+        <div class="proj-desc">Python-based Adhan automation service that fetches daily prayer times, schedules reminders, supports offline caching, and runs reliably as a systemd service on Linux servers.</div>
+        <div class="proj-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Linux Server</span>
+          <span class="tag">SQLite</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="proj-card" href="projects/auremind.html" data-c="web">
+      <div class="proj-top c4"><img src="assets/auremind_bg.jpg" alt="AureMind"/></div>
+      <div class="proj-body">
+        <div class="proj-cat">College Project · 2025</div>
+        <div class="proj-title">AureMind</div>
+        <div class="proj-desc">An AI-assisted personal management web app built with Django, combining note-taking, task management, and productivity tools within a clean, responsive interface.</div>
+        <div class="proj-tags">
+          <span class="tag">Python</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">Django</span>
+          <span class="tag">SQLite</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<footer>built by <span>Demas Anggara</span> · Portfolio · 2026</footer>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Argus — Demas Anggara</title>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="../index.html">demas<em>.anggara</em></a>
+  <div class="nav-links" id="nav-links">
+    <a class="nav-btn" href="../index.html">Home</a>
+    <a class="nav-btn" href="../projects.html">Projects</a>
+    <a class="nav-btn" href="../about.html">About</a>
+    <a class="nav-btn" href="../contact.html">Contact</a>
+  </div>
+  <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+  <a class="nav-hire" href="../contact.html">Hire me</a>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<div class="project-detail">
+
+  <div class="breadcrumb">
+    <a href="../projects.html">Projects</a>
+    <span class="breadcrumb-sep">/</span>
+    <span>Argus</span>
+  </div>
+
+  <div class="project-hero c2"><img src="../assets/argus.jpg" alt="Argus"/></div>
+
+  <div class="project-meta-row">
+    <span class="project-cat-badge">Web App</span>
+    <span class="project-year">2026</span>
+  </div>
+  <h1>Argus</h1>
+
+  <div class="project-layout">
+    <div class="project-body">
+
+      <h3>Overview</h3>
+      <p>Argus is a self-hosted, AI-assisted vulnerability management platform. It tracks an organisation's asset inventory, matches each asset against the National Vulnerability Database, enriches findings with exploit intelligence, and ranks them by a calculated risk score. Everything is available through a Flask web dashboard and a Telegram bot that share one PostgreSQL database.</p>
+      <p>The name comes from Argus Panoptes, the hundred-eyed giant of Greek mythology who never fully slept. Like its namesake, Argus keeps watching assets around the clock and raises an alert when something needs attention.</p>
+
+      <h3>Problem</h3>
+      <p>Small security teams and individual analysts often have the raw ingredients for vulnerability management, an asset list and access to public CVE feeds, but not the tooling to connect them. Finding out what affects them, which vulnerabilities are actually being exploited, and what to fix first usually means cross-referencing spreadsheets by hand.</p>
+
+      <h3>Solution</h3>
+      <p>Argus automates that correlation loop. Assets are scanned daily against the NVD, every finding is checked against CISA's Known Exploited Vulnerabilities catalogue and FIRST's EPSS exploit-probability scores, and a deterministic formula turns those signals into one risk score per finding:</p>
+      <p><strong>Risk = (CVSS × 10) + (EPSS percentile × 1000) + criticality bonus + KEV bonus</strong></p>
+      <p>On top of this pipeline sits an AI Security Copilot. Every answer is built from live database queries rather than the model's training memory, so responses reflect the current state of the environment.</p>
+
+      <h3>Key Features</h3>
+      <ul>
+        <li>Asset inventory with vendor, product, version, type, location, owner, and criticality</li>
+        <li>NVD integration with CVSS fallback from v3.1 to v3.0 to v2, plus CISA KEV and EPSS enrichment</li>
+        <li>Deduplicated findings with an open, resolved, and patched workflow and owner assignment</li>
+        <li>AI chat that routes each question by intent and grounds its answer in live PostgreSQL data</li>
+        <li>Automatic AI analysis of every newly discovered CVE, with retries and a watchdog for stuck jobs</li>
+        <li>Daily, weekly, monthly, and yearly PDF reports, generated on schedule or on demand</li>
+        <li>Telegram bot for adding assets, running scans, reviewing findings, and receiving batched alerts</li>
+        <li>Dashboard charts for risk distribution, KEV exposure, vendor breakdown, and findings history</li>
+      </ul>
+
+      <h3>Architecture</h3>
+      <p>The web dashboard and the Telegram bot run as independent processes but call into the same Python modules for database access, scanning, risk scoring, reporting, and AI, so no logic is duplicated between them. APScheduler drives the background jobs: the daily scan, risk snapshots for trend charts, scheduled reports, and the AI analysis queue. The AI layer talks to any OpenAI-compatible endpoint and was evaluated against a local llama.cpp server, so vulnerability data never has to leave the machine.</p>
+
+      <h3>Security by Design</h3>
+      <ul>
+        <li>The app refuses to start without an explicit secret key and admin credentials, with no insecure fallback</li>
+        <li>Role-based access with admin and viewer roles, enforced at the route level</li>
+        <li>CSRF protection on every state-changing route and hashed passwords</li>
+        <li>HTTP-only, SameSite session cookies with a fixed session lifetime</li>
+      </ul>
+
+      <h3>Technical Challenges</h3>
+      <p>Keeping AI answers trustworthy was the central challenge. Instead of letting the model answer from memory, the copilot classifies each question, runs the matching set of queries, and passes only that structured context to the model. Responses are cached against a hash of both the question and the live data, so a cached answer is invalidated automatically the moment the underlying findings change.</p>
+      <p>The database also had to stay consistent across many iterations. The schema is self-healing: migrations are idempotent and applied at startup, so the same codebase can run on a fresh or an existing database without manual steps.</p>
+
+      <h3>What I Learned</h3>
+      <p>Argus taught me how vulnerability management works in practice, from CVSS, KEV, and EPSS to why a severity score alone is not enough to prioritise. On the engineering side, it showed me how to share one data layer between two interfaces, how to run reliable background jobs, and how to put an LLM to work responsibly by grounding it in real data and being explicit about its limits.</p>
+
+    </div>
+
+    <div class="project-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Tech Stack</div>
+        <div class="sidebar-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Flask</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Telegram API</span>
+          <span class="tag">APScheduler</span>
+          <span class="tag">ReportLab</span>
+          <span class="tag">llama.cpp</span>
+          <span class="tag">NVD API</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Links</div>
+        <div class="sidebar-links">
+          <!-- TODO: replace with the repository URL -->
+          <a class="sidebar-link" href="https://github.com/demuuus/argus" target="_blank">
+            <i class="fa-brands fa-github"></i> View on GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Details</div>
+        <div class="detail-list">
+          <div>
+            <div class="detail-label">Status</div>
+            <div class="detail-value status-live">🟢 Active Development</div>
+          </div>
+          <div>
+            <div class="detail-label">Type</div>
+            <div class="detail-value">Side Project</div>
+          </div>
+          <div>
+            <div class="detail-label">Year</div>
+            <div class="detail-value">2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-nav">
+    <a class="project-nav-btn" href="crud-python-store.html">
+      <span class="project-nav-label">← Previous project</span>
+      <span class="project-nav-title">Store Discount Management System</span>
+    </a>
+    <a class="project-nav-btn right" href="sppg-carto.html">
+      <span class="project-nav-label">Next project →</span>
+      <span class="project-nav-title">SPPG Carto</span>
+    </a>
+  </div>
+
+</div>
+
+<footer>built by <span>Demas Anggara</span> · Portfolio · 2026</footer>
+<script src="../script.js"></script>
+</body>
+</html>

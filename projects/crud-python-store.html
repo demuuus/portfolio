@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Store Discount Management System — Demas Anggara</title>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="../index.html">demas<em>.anggara</em></a>
+  <div class="nav-links" id="nav-links">
+    <a class="nav-btn" href="../index.html">Home</a>
+    <a class="nav-btn" href="../projects.html">Projects</a>
+    <a class="nav-btn" href="../about.html">About</a>
+    <a class="nav-btn" href="../contact.html">Contact</a>
+  </div>
+  <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+  <a class="nav-hire" href="../contact.html">Hire me</a>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<div class="project-detail">
+
+  <div class="breadcrumb">
+    <a href="../projects.html">Projects</a>
+    <span class="breadcrumb-sep">/</span>
+    <span>Store Discount Management System</span>
+  </div>
+
+  <div class="project-hero c2"><img src="../assets/crud_python_store.jpg" alt="Store Discount Management System"/></div>
+
+  <div class="project-meta-row">
+    <span class="project-cat-badge">Code</span>
+    <span class="project-year">2026</span>
+  </div>
+  <h1>Store Discount Management System</h1>
+
+  <div class="project-layout">
+    <div class="project-body">
+
+      <h3>Overview</h3>
+      <p>A command-line application in pure Python for managing promotions at a minimarket. Owners can create and maintain discount events, and cashiers can apply them during a customer purchase, with the system checking every rule before a discount goes through.</p>
+
+      <h3>Problem</h3>
+      <p>Minimarkets run several kinds of promotions at once, each with its own period and conditions. Tracking them by hand makes it easy to apply an expired voucher, give a discount the purchase does not qualify for, or let stock records drift from what was actually sold.</p>
+
+      <h3>Features</h3>
+      <ul>
+        <li><strong>Create:</strong> add promotions with a name, type, start and end date, and discount value</li>
+        <li><strong>Read:</strong> list or search promotions and products by keyword</li>
+        <li><strong>Update:</strong> edit any field of an existing promotion</li>
+        <li><strong>Delete:</strong> remove promotions with a confirmation step</li>
+        <li><strong>Transactions:</strong> process a purchase, apply a voucher, and update stock automatically</li>
+      </ul>
+
+      <h3>Promotion Types</h3>
+      <ul>
+        <li><strong>Percentage:</strong> a 1–20% discount, valid on purchases of at least 5 items</li>
+        <li><strong>Buy 2 Get 1:</strong> free items on an even quantity, up to 6 items per purchase</li>
+        <li><strong>Fixed:</strong> a set Rupiah amount off per item, up to 4 items, and never below a total of Rp0</li>
+      </ul>
+
+      <h3>How It Works</h3>
+      <p>Data is held in memory as lists of dictionaries, so the program runs with no database or external packages. At checkout, the cashier picks a product and quantity, which is checked against available stock. If the customer has a voucher, the system looks up the promotion, confirms it is active for today's date, checks the quantity rules for its type, and asks for confirmation before calculating the final price and deducting stock.</p>
+      <p>Every input is validated in a loop until it is correct: promotion names accept only letters, numbers, and basic punctuation, dates must follow DD-MM-YYYY with the end date on or after the start date, and numeric fields reject non-numbers and out-of-range values with a clear message.</p>
+
+      <h3>What I Learned</h3>
+      <p>This project was a foundation in writing a complete program from scratch: breaking a business process into small functions, modelling data with Python's built-in structures, and designing a menu flow that users can navigate without getting stuck. Above all, it taught me to treat input validation and business rules as core features rather than afterthoughts.</p>
+
+    </div>
+
+    <div class="project-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Tech Stack</div>
+        <div class="sidebar-tags">
+          <span class="tag">Python</span>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Links</div>
+        <div class="sidebar-links">
+          <a class="sidebar-link" href="https://github.com/demuuus/python_store_promotion_management_system" target="_blank">
+            <i class="fa-brands fa-github"></i> View on GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Details</div>
+        <div class="detail-list">
+          <div>
+            <div class="detail-label">Status</div>
+            <div class="detail-value status-live">🟢 Completed</div>
+          </div>
+          <div>
+            <div class="detail-label">Type</div>
+            <div class="detail-value">Command-line App</div>
+          </div>
+          <div>
+            <div class="detail-label">Year</div>
+            <div class="detail-value">2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-nav">
+    <a class="project-nav-btn" href="gopay-analysis.html">
+      <span class="project-nav-label">← Previous project</span>
+      <span class="project-nav-title">Gopay - Data Analysis</span>
+    </a>
+    <a class="project-nav-btn right" href="argus.html">
+      <span class="project-nav-label">Next project →</span>
+      <span class="project-nav-title">Argus</span>
+    </a>
+  </div>
+
+</div>
+
+<footer>built by <span>Demas Anggara</span> · Portfolio · 2026</footer>
+<script src="../script.js"></script>
+</body>
+</html>

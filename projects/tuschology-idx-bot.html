@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tuschology — Demas Anggara</title>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="../index.html">demas<em>.anggara</em></a>
+  <div class="nav-links" id="nav-links">
+    <a class="nav-btn" href="../index.html">Home</a>
+    <a class="nav-btn" href="../projects.html">Projects</a>
+    <a class="nav-btn" href="../about.html">About</a>
+    <a class="nav-btn" href="../contact.html">Contact</a>
+  </div>
+  <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+  <a class="nav-hire" href="../contact.html">Hire me</a>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<div class="project-detail">
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a href="../projects.html">Projects</a>
+    <span class="breadcrumb-sep">/</span>
+    <span>Tuschology-IDX-Bot</span>
+  </div>
+
+  <!-- Hero Image -->
+  <div class="project-hero c1"><img src="../assets/Tuscho_Investing.png" alt="Tuschology"/></div>
+
+  <!-- Title & Meta -->
+  <div class="project-meta-row">
+    <span class="project-cat-badge">Bot / Automation</span>
+    <span class="project-year">2025</span>
+  </div>
+  <h1>Tuschology-IDX-Bot</h1>
+
+  <!-- Content -->
+  <div class="project-layout">
+    <div class="project-body">
+
+      <h3>Overview</h3>
+      <p>Tuschology-IDX-Bot is a real-time market intelligence bot that monitors Indonesian stock market activity by combining official IDX (Indonesia Stock Exchange) announcements with curated financial news feeds. It delivers structured alerts to both Discord and Telegram, enabling retail investors to stay informed without manually tracking multiple platforms.</p>
+
+      <h3>Problem</h3>
+      <p>Indonesian retail investors often miss critical market-moving events such as suspensions, unusual market activity (UMA), and corporate disclosures because information is fragmented across the IDX website and various financial news portals. Monitoring these sources manually is inefficient and increases the risk of delayed decision-making.</p>
+
+      <h3>Solution</h3>
+      <p>This bot continuously runs asynchronous pipelines that:</p>
+      <ul>
+        <li>Scrape official IDX announcement pages for high-priority market events</li>
+        <li>Aggregate financial news from multiple RSS feeds</li>
+        <li>Filter and deduplicate content in real-time</li>
+        <li>Deliver structured alerts instantly to Discord and Telegram</li>
+      </ul>
+      <p>The system also adapts its behavior based on market conditions, including maintenance detection and trading hours awareness.</p>
+
+      <h3>Key Features</h3>
+      <ul>
+        <li>IDX Priority Monitoring which detects and categorizes Suspensions, Unusual Market Activity (UMA), Disclosure, General issuer announcements</li>
+        <li>Multi-source RSS Aggregation which integrates with CNBC Indonesia, CNN Indonesia, Tempo, Antara, Kontan, and Bloomberg Indonesia</li>
+        <li>Real-time Async Processing</li>
+        <li>Deduplication System which uses hashed URLs and in-memory cache to prevent duplicate alerts</li>
+        <li>Discord Integration with topic based routing, multi-server support, dynamic rich presence based on market state</li>
+        <li>Telegram Integration with broadcast alerts, status command, real-time system metrics</li>
+        <li>State Persistence which is JSON-based storage for sent IDX announcements and last seen RSS entries</li>
+      </ul>
+
+      <h3>Technical Challenges</h3>
+      <p>One of the main challenges was handling dynamic and inconsistent IDX website structures, where traditional scraping selectors often failed due to frontend changes. This was solved by implementing flexible anchor-based parsing combined with path filtering.</p>
+      <p>Another challenge was ensuring system stability in an always-on asynchronous environment. Without cron-based execution, failures could silently stop pipelines. This required careful exception handling, state persistence, and process management strategies.</p>
+      <p>Additionally, managing real-time deduplication across multiple heterogeneous data sources required a reliable hashing strategy to avoid repeated alerts while maintaining performance.</p>
+
+      <h3>What I Learned</h3>
+      <p>This project deepened my understanding of:</p>
+      <ul>
+        <li>Asynchronous programming in Python for real-time data processing</li>
+        <li>Real-time data pipelines vs scheduled jobs</li>
+        <li>Multi-platform bot architecture (Discord + Telegram)</li>
+        <li>Resilient web scraping under changing frontend structures</li>
+        <li>State management without traditional databases</li>
+      </ul>
+      <p>It also introduced practical challenges in deploying and maintaining long-running services, including process supervision, error recovery, and production stability.</p>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="project-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Tech Stack</div>
+        <div class="sidebar-tags">
+          <span class="tag">Python</span>
+          <span class="tag">BeautifulSoup4</span>
+          <span class="tag">Telegram API</span>
+          <span class="tag">Discord API</span>
+          <span class="tag">SQLite</span>
+          <span class="tag">Requests</span>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Links</div>
+        <div class="sidebar-links">
+          <a class="sidebar-link" href="https://github.com/demuuus/Tuschology-IDX-Bot" target="_blank">
+            <i class="fa-brands fa-github"></i> View on GitHub
+          </a>
+          <a class="sidebar-link" href="https://t.me/+xhE4foKY7A02MWZl" target="_blank">
+            <i class="fa-brands fa-telegram"></i> Telegram Channel
+          </a>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Details</div>
+        <div class="detail-list">
+          <div>
+            <div class="detail-label">Status</div>
+            <div class="detail-value status-live">🟢 Live</div>
+          </div>
+          <div>
+            <div class="detail-label">Type</div>
+            <div class="detail-value">Side Project</div>
+          </div>
+          <div>
+            <div class="detail-label">Year</div>
+            <div class="detail-value">2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Prev / Next Navigation -->
+  <div class="project-nav">
+    <a class="project-nav-btn" href="sppg-carto.html">
+      <span class="project-nav-label">← Previous project</span>
+      <span class="project-nav-title">SPPG Carto</span>
+    </a>
+    <a class="project-nav-btn right" href="adhan-caller.html">
+      <span class="project-nav-label">Next project →</span>
+      <span class="project-nav-title">Adhan Caller</span>
+    </a>
+  </div>
+
+</div>
+
+<footer>built by <span>Demas Anggara</span> · Portfolio · 2026</footer>
+<script src="../script.js"></script>
+</body>
+</html>

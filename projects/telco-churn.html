@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Telco Customer Churn — Demas Anggara</title>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="../index.html">demas<em>.anggara</em></a>
+  <div class="nav-links" id="nav-links">
+    <a class="nav-btn" href="../index.html">Home</a>
+    <a class="nav-btn" href="../projects.html">Projects</a>
+    <a class="nav-btn" href="../about.html">About</a>
+    <a class="nav-btn" href="../contact.html">Contact</a>
+  </div>
+  <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+  <a class="nav-hire" href="../contact.html">Hire me</a>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<div class="project-detail">
+
+  <div class="breadcrumb">
+    <a href="../projects.html">Projects</a>
+    <span class="breadcrumb-sep">/</span>
+    <span>Telco Customer Churn</span>
+  </div>
+
+  <div class="project-hero c1"><img src="../assets/telco_churn.png" alt="Churn rate by tenure band"/></div>
+
+  <div class="project-meta-row">
+    <span class="project-cat-badge">Machine Learning</span>
+    <span class="project-year">2026</span>
+  </div>
+  <h1>Telco Customer Churn</h1>
+
+  <div class="project-layout">
+    <div class="project-body">
+
+      <h3>Overview</h3>
+      <p>A supervised machine learning project that estimates the probability that a telecom customer has churned and turns that probability into a contact decision for a retention team. Built together with Reyner Elazaro Tampubolon, it compares six algorithms under one validation protocol, selects a model with a rule fixed in advance, and chooses the decision threshold from an explicit cost model.</p>
+
+      <h3>Problem</h3>
+      <p>About one customer in four in the data has churned. A customer success team that wants to send retention offers needs a way to rank customers by churn risk and to decide how many of them are worth contacting, weighing missed churners against offers sent to customers who would have stayed anyway.</p>
+
+      <h3>Dataset</h3>
+      <p>4,930 customers described by ten attributes: dependents, tenure, four add-on services, internet service type, contract type, paperless billing, and monthly charges. The target is imbalanced, with 26.7% churners. There are no missing values; the 77 duplicate rows were kept because the data has no customer identifier to prove they are the same person.</p>
+
+      <h3>Exploratory Analysis</h3>
+      <ul>
+        <li>Month-to-month customers churn at 43.3%, against 9.9% on one-year and 2.7% on two-year contracts</li>
+        <li>Churn falls steadily with tenure, from 47.9% in the first year to 9.1% after four years</li>
+        <li>Fiber optic customers churn at 42.2%, compared with 18.8% on DSL</li>
+        <li>Customers without tech support churn at 41.4%, against 15.4% for those who have it</li>
+      </ul>
+
+      <h3>Methodology</h3>
+      <p>All preprocessing lives inside a scikit-learn pipeline, so every transformation is fitted on training folds only. After a stratified 80/20 split, models were compared with stratified 5-fold nested cross-validation: an inner grid search tuned hyperparameters on PR-AUC, and the outer folds produced honest out-of-fold predictions. The test set was kept aside for a single final evaluation.</p>
+      <ul>
+        <li>Compared Logistic Regression, Decision Tree, Random Forest, HistGradientBoosting, XGBoost, and LightGBM against a dummy baseline</li>
+        <li>Tested class weighting, random oversampling, and SMOTENC for class imbalance; none improved PR-AUC and all worsened calibration, so imbalance was handled through the threshold instead</li>
+        <li>Selected Logistic Regression by a pre-registered rule: prefer the most interpretable model unless a more complex one wins clearly across folds. The top four models were within 0.003 PR-AUC of each other</li>
+        <li>Set the threshold at 0.27 by minimising expected cost on training predictions, close to the theoretical break-even point of 0.278</li>
+      </ul>
+
+      <h3>Results</h3>
+      <p>On the 986 held-out test customers at a threshold of 0.27, the model reached a recall of 0.81 and a ROC-AUC of 0.854, with a PR-AUC of 0.685 against a baseline of 0.267. It flagged 413 customers, 52% of whom were actual churners, about twice the base rate. Every metric is reported with a 95% bootstrap interval.</p>
+      <p>Under the project's illustrative cost assumptions, contacting only the flagged customers had the lowest expected cost of the three strategies, 11.6% below doing nothing. The precision and F1 targets were not met; the analysis showed that no threshold of any of the six models could meet both, which points to the limits of the ten features rather than the choice of algorithm.</p>
+
+      <h3>Limitations</h3>
+      <ul>
+        <li>The data has no timestamps, so the model classifies churn status; it is not shown to predict churn before it happens</li>
+        <li>Validation is internal only, on one split of one dataset</li>
+        <li>The model rarely flags churners on one- or two-year contracts</li>
+        <li>Business figures rest on assumed retention rates and offer costs, and measure revenue at risk rather than profit</li>
+      </ul>
+
+      <h3>What I Learned</h3>
+      <p>This project taught me that a trustworthy model depends as much on the evaluation protocol as on the algorithm. Nested cross-validation, a selection rule fixed before seeing the results, and a single untouched test set are what make the numbers believable. It also showed me that a threshold is a business decision, and that reporting limitations and unmet targets honestly is part of the result, not a weakness of it.</p>
+
+    </div>
+
+    <div class="project-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Tech Stack</div>
+        <div class="sidebar-tags">
+          <span class="tag">Python</span>
+          <span class="tag">scikit-learn</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">XGBoost</span>
+          <span class="tag">LightGBM</span>
+          <span class="tag">imbalanced-learn</span>
+          <span class="tag">Matplotlib</span>
+          <span class="tag">Seaborn</span>
+          <span class="tag">pytest</span>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Links</div>
+        <div class="sidebar-links">
+          <a class="sidebar-link" href="https://github.com/demuuus/telco_customer_churn_machine_learning" target="_blank">
+            <i class="fa-brands fa-github"></i> View on GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Details</div>
+        <div class="detail-list">
+          <div>
+            <div class="detail-label">Status</div>
+            <div class="detail-value status-live">🟢 Completed</div>
+          </div>
+          <div>
+            <div class="detail-label">Type</div>
+            <div class="detail-value">Team Project</div>
+          </div>
+          <div>
+            <div class="detail-label">Year</div>
+            <div class="detail-value">2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-nav">
+    <a class="project-nav-btn right" href="bluebird-analysis.html">
+      <span class="project-nav-label">Next project →</span>
+      <span class="project-nav-title">Bluebird - Data Analysis</span>
+    </a>
+  </div>
+
+</div>
+
+<footer>built by <span>Demas Anggara</span> · Portfolio · 2026</footer>
+<script src="../script.js"></script>
+</body>
+</html>
