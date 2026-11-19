@@ -19,7 +19,7 @@
   </div>
   <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
   <a class="nav-hire" href="../contact.html">Hire me</a>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
     <span></span>
     <span></span>
     <span></span>
@@ -34,7 +34,7 @@
     <span>AureMind</span>
   </div>
 
-  <div class="project-hero c4"><img src="../assets/auremind_bg.jpg" alt="Tuschology"/></div>
+  <div class="project-hero c4"><img src="../assets/auremind_bg.jpg" alt="AureMind"/></div>
 
   <div class="project-meta-row">
     <span class="project-cat-badge">College Project</span>
@@ -97,18 +97,18 @@
 
       <div class="sidebar-card">
         <div class="sidebar-card-title">Details</div>
-        <div style="display:flex;flex-direction:column;gap:10px">
+        <div class="detail-list">
           <div>
-            <div style="font-size:11px;font-family:'Fira Code',monospace;color:#aaa;margin-bottom:3px">Status</div>
-            <div style="font-size:13px;font-weight:500;color:#888">⚪ Archived</div>
+            <div class="detail-label">Status</div>
+            <div class="detail-value status-archived">⚪ Archived</div>
           </div>
           <div>
-            <div style="font-size:11px;font-family:'Fira Code',monospace;color:#aaa;margin-bottom:3px">Type</div>
-            <div style="font-size:13px;font-weight:500">Academic</div>
+            <div class="detail-label">Type</div>
+            <div class="detail-value">Academic</div>
           </div>
           <div>
-            <div style="font-size:11px;font-family:'Fira Code',monospace;color:#aaa;margin-bottom:3px">Year</div>
-            <div style="font-size:13px;font-weight:500">2025</div>
+            <div class="detail-label">Year</div>
+            <div class="detail-value">2025</div>
           </div>
         </div>
       </div>
@@ -116,12 +116,10 @@
   </div>
 
   <div class="project-nav">
-    <a class="project-nav-btn" href="../projects/adhan-caller.html">
+    <a class="project-nav-btn" href="adhan-caller.html">
       <span class="project-nav-label">← Previous project</span>
       <span class="project-nav-title">Adhan Caller</span>
     </a>
-    <div>
-    </div>
   </div>
 
 </div>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bluebird Analysis — Demas Anggara</title>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="../index.html">demas<em>.anggara</em></a>
+  <div class="nav-links" id="nav-links">
+    <a class="nav-btn" href="../index.html">Home</a>
+    <a class="nav-btn" href="../projects.html">Projects</a>
+    <a class="nav-btn" href="../about.html">About</a>
+    <a class="nav-btn" href="../contact.html">Contact</a>
+  </div>
+  <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+  <a class="nav-hire" href="../contact.html">Hire me</a>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<div class="project-detail">
+
+  <div class="breadcrumb">
+    <a href="../projects.html">Projects</a>
+    <span class="breadcrumb-sep">/</span>
+    <span>Bluebird - Data Analysis</span>
+  </div>
+
+  <div class="project-hero c2"><img src="../assets/bluebird.jpg" alt="Bluebird"/></div>
+
+  <div class="project-meta-row">
+    <span class="project-cat-badge">Data</span>
+    <span class="project-year">2026</span>
+  </div>
+  <h1>Bluebird - Data Analysis</h1>
+
+  <div class="project-layout">
+    <div class="project-body">
+
+      <h3>Overview</h3>
+      <p>An operational analysis of Bluebird taxi data covering fleet productivity, demand fulfillment, and eVoucher Corporate transactions. Built together with Nazma Aulia, the analysis takes a merged operational dataset from raw data to tested hypotheses and prioritised recommendations for management.</p>
+
+      <h3>Business Questions</h3>
+      <ul>
+        <li>When and where do customer requests fail to get a taxi?</li>
+        <li>Why is fleet productivity low, and does it differ between pools?</li>
+        <li>Do eVoucher Corporate transactions show patterns that need review?</li>
+      </ul>
+
+      <h3>Dataset</h3>
+      <p>A simulated operational dataset covering 1 October – 30 December 2023, delivered as one merged file of 414,888 rows that combined trips, requests, driver shifts, pools, and payments. Because one row did not always represent one event, every analysis was built on its own unique ID: 318,098 trips, 289,622 requests, and 252,524 shifts.</p>
+
+      <h3>Data Cleaning</h3>
+      <p>Seven anomalies were handled one by one, each documented through identification, analysis, method and justification, then verification. The guiding rule was to flag before changing and change before deleting.</p>
+      <ul>
+        <li>Standardised 22 different spellings of the service type into 4 categories, verified against the assigned vehicle type</li>
+        <li>Removed shift duplication caused by the merge (395,491 → 252,524 rows), which corrected average trips per shift from 1.91 to 1.26</li>
+        <li>Flagged negative distances and Regular trips faster than 100 km/h, excluding them from distance and fare-per-km analysis only</li>
+        <li>Analysed Charter trips separately instead of dropping them as IQR outliers, since their long distances matched their durations</li>
+        <li>Kept structural missing values, as they followed the business flow rather than indicating errors</li>
+      </ul>
+      <p>Every decision was recorded in a decision log, reconciled against row counts, and checked with a sensitivity test to confirm the conclusions held under alternative choices.</p>
+
+      <h3>Analysis</h3>
+      <p>Five hypotheses were tested using chi-square, Spearman correlation, and Kruskal-Wallis tests, with effect sizes reported alongside p-values since a dataset this large makes small p-values easy to reach. Results were treated as associations, not causes.</p>
+
+      <h3>Key Findings</h3>
+      <ul>
+        <li>Failures cluster at peak hours (07–08 and 17–18): these 4 hours carry 14% of requests but almost half of all failed requests</li>
+        <li>The CBD during peak hours alone accounts for about 38% of failed requests, while the airport has the lowest failure rate at 2.0%</li>
+        <li>Shifts average 8.5 hours with around 90% of that time not spent on trips, and the trip target is met in under 0.5% of shifts</li>
+        <li>The Soetta pool has the lowest trips per shift, yet airport demand is the best served, which suggests room to reallocate capacity</li>
+        <li>eVoucher fares are higher (median Rp64,000 vs about Rp59,000) because eVoucher trips are longer; per kilometre they are slightly cheaper</li>
+      </ul>
+
+      <h3>Recommendations</h3>
+      <ul>
+        <li>Add capacity in the CBD at 07–08 and 17–18, tracking failure rate by hour and zone</li>
+        <li>Pilot moving part of the Soetta shifts to CBD-heavy pools during peak hours, with a clear comparison group</li>
+        <li>Review the 5,899 night-time eVoucher transactions against client travel documents before drawing any conclusion</li>
+        <li>Fix distance sensor recording, the booking and meter time offset, and service type input at the source</li>
+      </ul>
+
+      <h3>What I Learned</h3>
+      <p>The most important step happened before any chart: understanding what one row of a merged dataset actually represents. Getting the grain wrong would have inflated productivity by half. The project also showed the value of justifying every cleaning decision instead of defaulting to deletion, of reading effect sizes rather than relying on p-values alone, and of keeping a clear line between a flagged record and a confirmed problem.</p>
+
+    </div>
+
+    <div class="project-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Tech Stack</div>
+        <div class="sidebar-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">SciPy</span>
+          <span class="tag">Matplotlib</span>
+          <span class="tag">Jupyter Notebook</span>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Links</div>
+        <div class="sidebar-links">
+          <!-- TODO: replace with the repository URL -->
+          <a class="sidebar-link" href="https://github.com/demuuus/data_analysis_blue_bird" target="_blank">
+            <i class="fa-brands fa-github"></i> View on GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Details</div>
+        <div class="detail-list">
+          <div>
+            <div class="detail-label">Status</div>
+            <div class="detail-value status-live">🟢 Completed</div>
+          </div>
+          <div>
+            <div class="detail-label">Type</div>
+            <div class="detail-value">Team Project</div>
+          </div>
+          <div>
+            <div class="detail-label">Year</div>
+            <div class="detail-value">2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-nav">
+    <a class="project-nav-btn" href="telco-churn.html">
+      <span class="project-nav-label">← Previous project</span>
+      <span class="project-nav-title">Telco Customer Churn</span>
+    </a>
+    <a class="project-nav-btn right" href="gopay-analysis.html">
+      <span class="project-nav-label">Next project →</span>
+      <span class="project-nav-title">Gopay - Data Analysis</span>
+    </a>
+  </div>
+
+</div>
+
+<footer>built by <span>Demas Anggara</span> · Portfolio · 2026</footer>
+<script src="../script.js"></script>
+</body>
+</html>

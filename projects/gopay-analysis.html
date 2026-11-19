@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gopay Analysis — Demas Anggara</title>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="../index.html">demas<em>.anggara</em></a>
+  <div class="nav-links" id="nav-links">
+    <a class="nav-btn" href="../index.html">Home</a>
+    <a class="nav-btn" href="../projects.html">Projects</a>
+    <a class="nav-btn" href="../about.html">About</a>
+    <a class="nav-btn" href="../contact.html">Contact</a>
+  </div>
+  <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+  <a class="nav-hire" href="../contact.html">Hire me</a>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<div class="project-detail">
+
+  <div class="breadcrumb">
+    <a href="../projects.html">Projects</a>
+    <span class="breadcrumb-sep">/</span>
+    <span>Gopay - Data Analysis</span>
+  </div>
+
+  <div class="project-hero c2"><img src="../assets/gopay.jpg" alt="Gopay"/></div>
+
+  <div class="project-meta-row">
+    <span class="project-cat-badge">Data</span>
+    <span class="project-year">2026</span>
+  </div>
+  <h1>Gopay - Data Analysis</h1>
+
+  <div class="project-layout">
+    <div class="project-body">
+
+      <h3>Overview</h3>
+      <p>A credit risk investigation of GoPayLater, the pay-later feature in the GoPay digital wallet. Working from the perspective of a risk management analyst, the analysis cleans and audits transaction, user, and service data to uncover system anomalies and the patterns behind defaulted payments.</p>
+
+      <h3>Problem</h3>
+      <p>GoPayLater lifts transaction volume, but the scenario presents three warning signs: a rising non-performing loan rate, a credit limit validation bug that lets users spend beyond their limit, and inconsistent records left behind by merging data from many micro-services. Before any risk conclusion could be trusted, the data itself had to be audited.</p>
+
+      <h3>Dataset</h3>
+      <p>Three related tables: 35,000 users with their tier, internal credit score, and PayLater limit; a catalogue of 20 services across the Gojek ecosystem; and 300,000 transactions with payment method, amount, late fee, and payment status. Every transaction was confirmed to link to a valid user and service before analysis began.</p>
+
+      <h3>Data Quality Investigation</h3>
+      <ul>
+        <li>Standardised 8 different spellings of the payment method into 3 methods: GoPay, PayLater, and Cash</li>
+        <li>Classified the 5,250 missing credit scores (15% of users) as a risk signal rather than random noise, and kept unscored users as their own group instead of imputing a score</li>
+        <li>Separated two late fee anomalies: 75 negative fees of −Rp15,000 and 76 impossible fees of Rp99,999,999</li>
+        <li>Flagged 30,177 transactions (about 10%) dated before the user's account existed, instead of dropping them</li>
+        <li>Identified Basic-tier users, whose PayLater limit is always zero, transacting with PayLater, confirming the limit validation bug</li>
+      </ul>
+
+      <h3>Key Findings</h3>
+      <ul>
+        <li>35.4% of users without a credit score had at least one defaulted transaction, which makes "unscored" a meaningful risk category on its own</li>
+        <li>The pre-signup transactions fell steadily every month, from 6,709 in January 2023 to 269 in September 2023, a systematic pattern that points to a data migration error rather than fraud</li>
+        <li>Those transactions defaulted at the same 5% rate as all others (chi-square p ≈ 1.0), so flagging them keeps the evidence without distorting the risk analysis</li>
+        <li>PayLater transactions that break the limit rules were kept and flagged, since they are the most valuable evidence for sizing the bug and studying default behaviour</li>
+      </ul>
+
+      <h3>What I Learned</h3>
+      <p>This project showed me that in financial data, how a value is missing or broken is often more informative than the value itself. Deciding whether missing data is random or systematic, choosing to flag rather than delete, and testing an anomaly against the outcome before discarding it all changed what the data could say about credit risk.</p>
+
+    </div>
+
+    <div class="project-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Tech Stack</div>
+        <div class="sidebar-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">SciPy</span>
+          <span class="tag">Jupyter Notebook</span>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Links</div>
+        <div class="sidebar-links">
+          <!-- TODO: replace with the repository URL -->
+          <a class="sidebar-link" href="https://github.com/demuuus/data_analysis_report_gopay" target="_blank">
+            <i class="fa-brands fa-github"></i> View on GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Details</div>
+        <div class="detail-list">
+          <div>
+            <div class="detail-label">Status</div>
+            <div class="detail-value">🟡 In Progress</div>
+          </div>
+          <div>
+            <div class="detail-label">Type</div>
+            <div class="detail-value">Data Analysis</div>
+          </div>
+          <div>
+            <div class="detail-label">Year</div>
+            <div class="detail-value">2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-nav">
+    <a class="project-nav-btn" href="bluebird-analysis.html">
+      <span class="project-nav-label">← Previous project</span>
+      <span class="project-nav-title">Bluebird - Data Analysis</span>
+    </a>
+    <a class="project-nav-btn right" href="crud-python-store.html">
+      <span class="project-nav-label">Next project →</span>
+      <span class="project-nav-title">Store Discount Management System</span>
+    </a>
+  </div>
+
+</div>
+
+<footer>built by <span>Demas Anggara</span> · Portfolio · 2026</footer>
+<script src="../script.js"></script>
+</body>
+</html>

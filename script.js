@@ -24,16 +24,13 @@ function updateToggleIcon() {
 document.addEventListener('DOMContentLoaded', () => {
   updateToggleIcon();
 
-  const path = window.location.pathname;
-  const links = document.querySelectorAll('.nav-btn');
-  links.forEach(link => {
+  // Project detail pages highlight "Projects"; "/" resolves to index.html.
+  const page = document.querySelector('.project-detail')
+    ? 'projects.html'
+    : (window.location.pathname.split('/').pop() || 'index.html');
+  document.querySelectorAll('.nav-btn').forEach(link => {
     const href = link.getAttribute('href');
-    if (!href) return;
-    const isHome = (path.endsWith('index.html') || path === '/' || path.endsWith('/')) && href.includes('index.html');
-    const isProjects = path.includes('projects.html') && href.includes('projects.html');
-    const isContact = path.includes('contact.html') && href.includes('contact.html');
-    const isAbout = path.includes('about.html') && href.includes('about.html');
-    if (isHome || isProjects || isContact || isAbout) link.classList.add('active');
+    if (href && href.split('/').pop() === page) link.classList.add('active');
   });
 });
 

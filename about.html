@@ -18,7 +18,7 @@
   </div>
   <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
   <a class="nav-hire" href="contact.html">Hire me</a>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
     <span></span>
     <span></span>
     <span></span>
@@ -34,57 +34,92 @@
       <h2>Computer Science.<br>Problem solver.<br>Builder.</h2>
       <p>Hey! I'm Demas, fresh graduate Computer Science student at Delhi University who loves building things that make life easier. I got into programming by learning how to create websites at 12 then I fell into this technology rabbit hole, since then I'm hooked up with everything related to technology.</p>
       <p>These days I focus on Full-Stack Web Development, Machine Learning & Data Science, Artificial Intelligence, Home Labbing, with a strong interest in developer tooling and open source. I care about clean code, good UX, and things that actually work.</p>
-      <p>Outside code, I am just an average person with a niche in movies, classical arts, musics and anime.</p>
+      <p>Outside code, I am just an average person with a niche in movies, classical arts, and musics. Back in middle school, I studied at Athénée Royal Crommelynck, which is where I started learning French.</p>
 
 
       <div class="skills-header">Languages</div>
       <div class="tag-cloud">
+        <span class="tag">Python</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">SQL</span>
+        <span class="tag">HTML &amp; CSS</span>
+      </div>
+
+      <div class="skills-header">Web Development</div>
+      <div class="tag-cloud">
+        <span class="tag">Django</span>
+        <span class="tag">REST APIs</span>
+        <span class="tag">SQLite</span>
+      </div>
+
+      <div class="skills-header">Data &amp; Machine Learning</div>
+      <div class="tag-cloud">
+        <span class="tag">Pandas</span>
+        <span class="tag">NumPy</span>
+        <span class="tag">Scikit-learn</span>
+        <span class="tag">Matplotlib</span>
+        <span class="tag">Jupyter</span>
+      </div>
+
+      <div class="skills-header">Tools &amp; Systems</div>
+      <div class="tag-cloud">
+        <span class="tag">Git</span>
+        <span class="tag">Linux</span>
+        <span class="tag">Docker</span>
+        <span class="tag">systemd</span>
+      </div>
+
+      <div class="skills-header">Spoken Languages</div>
+      <div class="tag-cloud">
         <span class="tag">Indonesian</span>
         <span class="tag">English</span>
         <span class="tag">French</span>
+        <span class="tag">Hindi</span>
       </div>
 
-      <div class="skills-header">Programming Languages</div>
-      <div class="tag-cloud">
-        <span class="tag">Python</span>
-        <span class="tag">JavaScript</span>
-        <span class="tag">Java</span>
-        <span class="tag">C++</span>
-        <span class="tag">SQL</span>
-        <span class="tag">HTML</span>
-        <span class="tag">CSS</span>
+      <div class="skills-header">Education</div>
+      <div class="edu-list">
+        <article class="edu-card">
+          <div class="edu-head">
+            <div>
+              <h4 class="edu-title">B.Sc. Computer Science</h4>
+              <div class="edu-school">Delhi University</div>
+            </div>
+            <span class="edu-date">2023 – 2026</span>
+          </div>
+          <div class="edu-meta">Graduated June 2026</div>
+          <div class="edu-label">Coursework</div>
+          <div class="tag-cloud">
+            <span class="tag">Algorithms</span>
+            <span class="tag">Operating Systems</span>
+            <span class="tag">Networks</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Databases</span>
+            <span class="tag">Software Engineering</span>
+            <span class="tag">Data Mining</span>
+          </div>
+        </article>
+
+        <article class="edu-card">
+          <div class="edu-head">
+            <div>
+              <h4 class="edu-title">Data Science &amp; Machine Learning</h4>
+              <div class="edu-school">Purwadhika Digital Technology School</div>
+            </div>
+            <span class="edu-date">Batch 34</span>
+          </div>
+          <div class="edu-meta">Expected completion January 2027</div>
+          <div class="edu-label">Coursework</div>
+          <div class="tag-cloud">
+            <span class="tag">Data Science</span>
+            <span class="tag">Statistical Data Analysis</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Databases</span>
+          </div>
+        </article>
       </div>
 
-      <div class="skills-header">Frameworks &amp; Tools</div>
-      <div class="tag-cloud">
-        <span class="tag">React</span>
-        <span class="tag">Node.js</span>
-        <span class="tag">Flask</span>
-        <span class="tag">Django</span>
-        <span class="tag">Docker</span>
-        <span class="tag">Git</span>
-        <span class="tag">Linux</span>
-      </div>
-
-      <div class="skills-header">ML / Data</div>
-      <div class="tag-cloud">
-          <span class="tag">Pandas</span>
-          <span class="tag">NumPy</span>
-          <span class="tag">Scikit-learn</span>
-          <span class="tag">TensorFlow</span>
-          <span class="tag">PyTorch</span>
-          <span class="tag">Matplotlib</span>
-          <span class="tag">Seaborn</span>
-          <span class="tag">Jupyter</span>
-      </div>
-
-      <div class="edu-card">
-        <h4>🎓 B.Sc. Computer Science — Delhi University</h4>
-        <p>June 2026 · Batch 2023–2026</p>
-        <p>Coursework: Algorithms, Operating System, Networks, Machine Learning, Databases, Software Engineering, Data Mining.</p>
-      </div>
-
-      <div class="btn-row" style="margin-top:24px">
+      <div class="btn-row about-cta">
         <a class="btn-dark" href="projects.html">See projects →</a>
         <a class="btn-light" href="contact.html">Get in touch</a>
       </div>
